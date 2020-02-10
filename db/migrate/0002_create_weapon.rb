@@ -1,4 +1,4 @@
-class CreateWeapon < ActiveRecord::Migration[5.1]
+class CreateWeapon < ActiveRecord::Migration[5.0]
 
     def change
         create_table :weapons  do |t|

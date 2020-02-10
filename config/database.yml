@@ -1,2 +1,5 @@
-adapter: 'sqlite3'
-database: 'db/zombo_lib.db'
+development:
+  adapter: sqlite3
+  database: db/development.db 
+  pool: 5
+  timeout: 5000

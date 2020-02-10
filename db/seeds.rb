@@ -19,3 +19,5 @@ Weapon.create(weapon_name: "candlestick", strength: 10)
 10.times {
 Zombie.create(name: Faker::Games::Witcher.monster, catchphrase: Faker::TvShows::Community.quotes, health: rand(4..9), alive: 1)
 }
+
+p "finished seed"

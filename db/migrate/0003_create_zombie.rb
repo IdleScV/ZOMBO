@@ -1,4 +1,4 @@
-class CreateZombie < ActiveRecord::Migration[5.1]
+class CreateZombie < ActiveRecord::Migration[5.0]
 
     def change
         create_table :zombies  do |t|
