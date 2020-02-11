@@ -72,11 +72,7 @@ def rope_game
     #! Create mini game code here
 
 
-
-
-
-    scroll("You lose")
-    return false
+    rope_game_mini
 end
 
 def candlestick_game

@@ -1,5 +1,6 @@
 require_relative '../config/environment'
 require_relative '../db/seeds.rb'
+require_relative './components/ascii_art.rb'
 require_relative './components/choose_character.rb'
 require_relative './components/show_zombie.rb'
 require_relative './components/mini_games.rb'
@@ -43,16 +44,16 @@ rules = ["The rules to this game are simple...",
 # * Intro
 scroll("Hello player, please type in your name . . . ")
 line
-player_name = gets.chomp
-scroll(". . . . . . . initiating . . . . . . .", 0.00)
+@player_name = gets.chomp
+scroll(". . . . . . . initiating . . . . . . .")
 line
-scroll(bar, 0.00)
+scroll(bar)
 line
-scroll(title, 0.00)
+scroll(title)
 line
-scroll(bar, 0.0)
+scroll(bar)
 line
-scroll("#{player_name}, let's play!")
+scroll("#{@player_name}, let's play!")
 line
 rules.each{|string| scroll(string); line }
 line
@@ -60,10 +61,14 @@ line
 
 def game_play
     if Character.where({alive: true}).length == 0
-        puts "you lose" #! better ending
+        scroll(Losing, 0.001)
+        scroll("Good job #{@player_name}.")
+        line
         return
     elsif Zombie.where({alive: true}).length == 0
-        puts "you win" #! Better ending
+        scroll(Winning, 0.001)
+        scroll("Better luck, try again next time #{@player_name}")
+        line
         return
     end
     character_obj = choose_character
