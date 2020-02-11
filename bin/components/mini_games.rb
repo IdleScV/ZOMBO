@@ -3,7 +3,7 @@ require_relative '../components/choose_weapon.rb'
 require 'pry'
 
 
-def scroll(text, mili_s=0.04)
+def scroll(text, mili_s=0.00)
     text.each_char{|c| putc c ; sleep mili_s; $stdout.flush }
 end
 

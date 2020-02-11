@@ -1,7 +1,7 @@
 require_relative '../../config/environment'
 require 'pry'
 
-def scroll(text, mili_s=0.04)
+def scroll(text, mili_s=0.00)
     text.each_char{|c| putc c ; sleep mili_s; $stdout.flush }
 end
 
@@ -9,11 +9,14 @@ def line
     puts  " "
 end
 
-def available_character_names
-    arr = Character.all.map{ |character_obj|
-        character_obj[:name] }
+def alive_characters 
+    arr = Character.where({alive: true})
 
     arr
+end
+
+def available_character_names
+    alive_characters.map{|char| char["name"]}
         #* Returns array of available names
 end
 
@@ -27,7 +30,7 @@ def show_available_characters
     
     count = 0
     while count < character_names.length
-        scroll("#{count + 1}. #{character_names[count]}", 0.02)
+        scroll("#{count + 1}. #{character_names[count]}", 0.0)
         line
         count += 1
     end

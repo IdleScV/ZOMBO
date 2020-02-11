@@ -9,12 +9,12 @@ require 'pry'
 #     puts  " "
 # end
 
-def list_zombies
-    Zombie.all
-end
+# def list_zombies
+#     Zombie.all
+# end
 
 def alive_zombies
-    Zombie.where("alive" == true)
+    Zombie.where({alive: true})
 end 
 
 def select_zombie
@@ -39,7 +39,3 @@ def return_zombie
 end
 
 
-
-# show_zombie_with_stats.each {|stat| scroll(stat, 0.02); line}
-
-binding.pry
