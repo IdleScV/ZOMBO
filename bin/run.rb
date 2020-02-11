@@ -61,6 +61,7 @@ character_obj = choose_character
 line
 line
 show_zombie_with_stats.each {|stat| scroll(stat, 0.02); line}
+zombie_obj = select_zombie
 line
 line
 results = minigame(pick_weapon)
@@ -69,5 +70,3 @@ line
 input_result(results)
 
 
-# zombie_obj = 
-# weapon_obj = 

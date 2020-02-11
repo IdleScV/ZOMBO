@@ -17,13 +17,14 @@ def alive_zombies
     Zombie.where("alive" == true)
 end 
 
-def choose_random_zombie
-    zombie = alive_zombies[rand(alive_zombies.length-1)]
+def select_zombie
+    zombie = alive_zombies[0]
     zombie
 end
 
+
 def show_zombie_with_stats
-    zombie = choose_random_zombie
+    zombie = select_zombie
     arr = [ "************************************************************",
             "A zombie named "+ zombie["name"] + " appears from the dark . . . .", 
             "He says . . ." + zombie["catchphrase"], 
@@ -33,6 +34,12 @@ def show_zombie_with_stats
     arr
 end
 
+def return_zombie
+    select_zombie
+end
+
+
+
 # show_zombie_with_stats.each {|stat| scroll(stat, 0.02); line}
 
-# binding.pry
+binding.pry
