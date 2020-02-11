@@ -1,5 +1,11 @@
+
 require_relative '../config/environment'
-require_relative './components/cli_applications.rb'
+require_relative '../db/seeds.rb'
+require_relative './components/choose_character.rb'
+require_relative './components/show_zombie.rb'
+require_relative './components/mini_games.rb'
+
+
 
 def scroll(text, mili_s=0.04)
     text.each_char{|c| putc c ; sleep mili_s; $stdout.flush }
@@ -52,5 +58,17 @@ line
 rules.each{|string| scroll(string); line }
 line
 line
-choose_character
+character_obj = choose_character
 line
+line
+show_zombie_with_stats.each {|stat| scroll(stat, 0.02); line}
+line
+line
+results = minigame(pick_weapon)
+line
+line
+input_result(results)
+
+
+zombie_obj = 
+weapon_obj = 
