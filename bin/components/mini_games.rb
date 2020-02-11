@@ -1,5 +1,10 @@
 require_relative '../../config/environment'
 require_relative '../components/choose_weapon.rb'
+require_relative './games/candlestick_game.rb'
+require_relative './games/gun_game.rb'
+require_relative './games/knife_game.rb'
+require_relative './games/rope_game.rb'
+require_relative './games/sword_game.rb'
 require 'pry'
 
 
