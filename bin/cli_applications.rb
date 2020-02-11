@@ -3,9 +3,8 @@ require 'pry'
 
 def choose_character
     puts "Select your character..."
-    character_names = Character.all.map do |character_obj|
-        character_obj[:name] 
-    end
+    character_names = Character.all.map{ |character_obj|
+        character_obj[:name] }
 
     count = 0
     while count < character_names.length
@@ -23,4 +22,4 @@ def choose_character
 
 end
 
-choose_character
+# choose_character
