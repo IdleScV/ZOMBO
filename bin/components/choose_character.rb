@@ -50,7 +50,10 @@ def choose_character
     new_count = input.to_i - 1
     scroll("You've selected #{character_names[new_count]}")
     line
-    return character_names[new_count]
+    character_name = character_names[new_count]
+    character_obj = Character.all.detect{|char_obj| char_obj.name == character_name}
+
+    return character_obj
 
 end
 

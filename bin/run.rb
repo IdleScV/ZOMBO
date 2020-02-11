@@ -34,12 +34,11 @@ EOF
 bar = "*********************************************"
 
 
-rules = ["The rules to this game is simple...", 
-    "1. Your gang of 5 must survive the zombie attack",
+rules = ["The rules to this game are simple...", 
+    "1. At least one member of your gang must survive the zombie attacks",
     "2. Each round, pick a member and a weapon to face off against the zombie wave",
     "3. If you kill all 10 zombies, you win.",
-    "4. If a party member loses to a zombie, they become a zombie.",
-    "5. There are 10 zombies." ]
+    "4. There are 10 zombies.  Good luck." ]
 
 # * Intro
 scroll("Hello player, please type in your name . . . ")
@@ -70,5 +69,5 @@ line
 input_result(results)
 
 
-zombie_obj = 
-weapon_obj = 
+# zombie_obj = 
+# weapon_obj = 
