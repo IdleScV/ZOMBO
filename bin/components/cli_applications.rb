@@ -1,6 +1,8 @@
-require_relative '../config/environment'
+require_relative '../../config/environment'
 require 'pry'
 
+
+#! Make this into multiple single purpose methods
 def choose_character
     puts "Select your character..."
     character_names = Character.all.map{ |character_obj|
@@ -22,4 +24,5 @@ def choose_character
 
 end
 
-# choose_character
+# scroll(choose_character)
+
