@@ -18,7 +18,7 @@ end
 def weapon_choices
     show_weapons
     scroll("============================================")
-    puts "Type the name of your desired weapon . . . ."
+    scroll("Type the name of your desired weapon . . . .")
     userinput = gets.chomp
     userinput
 end
