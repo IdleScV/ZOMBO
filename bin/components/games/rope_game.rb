@@ -30,7 +30,7 @@ def rope_game_mini
     step1 = "Please choose a letter from A to Z"
 
     #? Method that allows the game to be played.
-    def changeword( wordarr, blankarr)
+    def changeword(wordarr, blankarr)
         char = gets.chomp
         input = char.downcase
         indexes = wordarr.each_index.select{|i| wordarr[i] == input}
@@ -41,13 +41,19 @@ def rope_game_mini
                     scroll(input + " is in the word!")
                     blankarr[indexes[count]] = input
                     count+=1
+                    scroll("=====================================================================", 0.005)
+                    p blankarr
+                    return true
                 end
             #? action if letter guessed is false
             else 
                 scroll("'#{input}' is not a letter in the word")
+                scroll("=====================================================================", 0.005)
+                p blankarr
+                return false
             end
         #? Returns the blank array with correct
-        p blankarr
+        
     end
 
 
@@ -56,21 +62,28 @@ def rope_game_mini
         puts breaker
         intro.map{|x| scroll(x)}
         puts breaker
+        p blankarr
         #? Chances is 6
         chances = 10
         count = 0
+        
         while count < chances do
             scroll(step1)
             scroll( "You have #{chances - count} chances left")
             #? wrong guess will increase count by 1
-            oldblankarr = blankarr
-            changeword(wordarr, blankarr)
-            if (oldblankarr.join('') == blankarr.join(''))
+
+            p word #! Testing
+            change = changeword(wordarr, blankarr)
+            if change == false
                 count += 1
             end
             # ! Win 
             if blankarr.join('') == wordarr.join('')
-                scroll( "You did it!")
+                puts (' ')
+                puts (' ')
+                scroll("You did it!")
+                puts (' ')
+                scroll("You have wrangled #{zombie.name} to death with your excellent roping skills!")
                 return true
             end        
         end
@@ -79,4 +92,4 @@ def rope_game_mini
     return false
 end
 
-# puts rope_game_mini
+puts rope_game_mini
