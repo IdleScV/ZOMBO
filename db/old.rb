@@ -5,6 +5,7 @@ def scroll(text, mili_s=0.03)
 end
 
 scroll( "You are playing an old game")
-scroll(". . . . . . . . . . . . . .")
-scroll( "There are #{Character.count} Champions left and #{Zombie.count} Zombies")
-scroll(". . . . . . . . . . . . . . ")
+scroll("--------------------------------------------")
+scroll("There are #{Character.where({alive: true}).count} Champions left, ")
+scroll("                            and #{Zombie.where({alive: true}).count} Zombies")
+scroll("--------------------------------------------")
