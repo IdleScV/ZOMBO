@@ -22,12 +22,12 @@ def rope_game_mini
     }
 
     #? Our Introduction to how the game is played
-    breaker = "====================================================================="
+    breaker = "============================================"
     intro = ["You have chosen to fight #{zombie["name"]} with a rope. . . .",
     "Excellent choice?",
     "Guess the correct animal to kill the zombie",
     "Your animal is #{word.length} letters long."]
-    step1 = "Please choose a letter from A to Z"
+    step1 = "Please choose a letter from 'a' to 'z'"
 
     #? Method that allows the game to be played.
     def changeword(wordarr, blankarr)
@@ -41,14 +41,14 @@ def rope_game_mini
                     scroll(input + " is in the word!")
                     blankarr[indexes[count]] = input
                     count+=1
-                    scroll("=====================================================================", 0.005)
+                    scroll("============================================", 0.005)
                     p blankarr
-                    return true
                 end
+                return true
             #? action if letter guessed is false
             else 
                 scroll("'#{input}' is not a letter in the word")
-                scroll("=====================================================================", 0.005)
+                scroll("============================================", 0.005)
                 p blankarr
                 return false
             end
@@ -61,10 +61,11 @@ def rope_game_mini
         #? Game Intro
         puts breaker
         intro.map{|x| scroll(x)}
+        p blankarr
         puts breaker
         p blankarr
         #? Chances is 6
-        chances = 10
+        chances = 6
         count = 0
         
         while count < chances do
@@ -72,7 +73,7 @@ def rope_game_mini
             scroll( "You have #{chances - count} chances left")
             #? wrong guess will increase count by 1
 
-            p word #! Testing
+            # p word #! Testing
             change = changeword(wordarr, blankarr)
             if change == false
                 count += 1
@@ -81,14 +82,19 @@ def rope_game_mini
             if blankarr.join('') == wordarr.join('')
                 puts (' ')
                 puts (' ')
-                scroll("You did it!")
+                scroll("                            You did it!             ")
                 puts (' ')
                 scroll("You have wrangled #{zombie.name} to death with your excellent roping skills!")
                 return true
             end        
         end
     # ! Lost
-    scroll( "You have lost! the animal was #{wordarr.join('')}. . . .")
+    puts (' ')
+    puts (' ')
+    scroll("You have lost! the animal was #{wordarr.join('')}. . . .")
+    puts (' ')
+    scroll("You have been wrangled #{zombie.name} to death by your own rope.")
+    
     return false
 end
 
