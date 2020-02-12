@@ -8,6 +8,7 @@ end
 
 def gun_game_mini
     #! Get current zombie name
+    
     def zombie
         Zombie.where({alive: true})[0]
     end
@@ -62,4 +63,5 @@ def gun_game_mini
     return false
     
 end
+# gun_game_mini
 

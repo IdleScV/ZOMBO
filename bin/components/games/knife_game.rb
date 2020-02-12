@@ -17,7 +17,7 @@ May your mind be quick and your finger be quicker.
     
 
     def start
-        puts "Stab the zombie!"
+        puts "GO! Stab the zombie!"
         x = Time.now.to_i
         y = Time.now.to_i
         counter = 0
@@ -32,7 +32,7 @@ May your mind be quick and your finger be quicker.
             end
             y = Time.now.to_i
         end
-        sleep 2
+        
         scroll( "You stabbed that sucker #{counter} times!", 0.0001)
         if counter >= 30
             scroll("You win this round! Appreciate having your brain while you can.")
@@ -46,7 +46,6 @@ May your mind be quick and your finger be quicker.
     def countdown
     3.downto(1) do |i|
         puts "#{'%2d' % i}"
-        scroll( "      . . . . . . . . . . . . . .", 0.005)
         sleep 1
     end
     end

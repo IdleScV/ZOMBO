@@ -57,7 +57,7 @@ def rope_game_mini
         intro.map{|x| scroll(x)}
         puts breaker
         #? Chances is 6
-        chances = 6
+        chances = 10
         count = 0
         while count < chances do
             scroll(step1)

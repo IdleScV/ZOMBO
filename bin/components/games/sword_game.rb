@@ -48,4 +48,4 @@ You have #{chance_max} guesses.
     scroll("---------------------------------------------------")
     guessing_game(chance_max)
 end
-# sword_game_mini
+sword_game_mini
