@@ -1,12 +1,9 @@
 require_relative '../../config/environment'
 require 'pry'
 
-def scroll(text, mili_s=0.00)
+def scroll(text, mili_s=0.03)
     text.each_char{|c| putc c ; sleep mili_s; $stdout.flush }
-end
-
-def line
-    puts  " "
+    puts " "
 end
 
 
@@ -15,12 +12,13 @@ def list_available_weapons
 end
 
 def show_weapons
-    list_available_weapons.each{|weapon| scroll(weapon["weapon_name"], 0.0) ; line}
+    list_available_weapons.each{|weapon| scroll(weapon["weapon_name"], 0.0) }
 end
 
 def weapon_choices
     show_weapons
-    puts "Select weapon type . . . ."
+    scroll("============================================")
+    puts "Type the name of your desired weapon . . . ."
     userinput = gets.chomp
     userinput
 end

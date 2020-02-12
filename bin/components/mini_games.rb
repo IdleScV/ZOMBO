@@ -8,12 +8,9 @@ require_relative './games/sword_game.rb'
 require 'pry'
 
 
-def scroll(text, mili_s=0.00)
+def scroll(text, mili_s=0.03)
     text.each_char{|c| putc c ; sleep mili_s; $stdout.flush }
-end
-
-def line
-    puts  " "
+    puts " "
 end
 
 def minigame(weapon_obj)
@@ -32,7 +29,7 @@ def minigame(weapon_obj)
 end
 
 def knife_game
-    line
+    
     #! Create mini game code here
 
 
@@ -44,39 +41,23 @@ def knife_game
 end
 
 def gun_game
-    line
-    #! Create mini game code here
-
-
-
-
-
-    scroll("You win this round . . .")
-    return true
+    gun_game_mini
 end
 
 def sword_game
-    line
+    
     #! Create mini game code here
-
-
-
-
 
     scroll("You lose")
     return false
 end
 
 def rope_game
-    line
-    #! Create mini game code here
-
-
     rope_game_mini
 end
 
 def candlestick_game
-    line
+    
     #! Create mini game code here
 
 

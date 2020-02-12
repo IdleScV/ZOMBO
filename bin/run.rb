@@ -8,14 +8,11 @@ require_relative './components/game_result.rb'
 
 
 
-def scroll(text, mili_s=0.00)
+def scroll(text, mili_s=0.03)#! deploy at 0.03
     text.each_char{|c| putc c ; sleep mili_s; $stdout.flush }
+    puts " "
 end
 
-
-def line
-    puts  " "
-end
 
 title = <<-'EOF'
 
@@ -29,11 +26,9 @@ _______  _______  _______  ______   _______
 (_______/(_______)|/     \||/ \___/ (_______) 
 
                             THE GAME
-
 EOF
 
-bar = "*********************************************"
-
+@bar= "============================================"
 
 rules = ["The rules to this game are simple...", 
     "1. At least one member of your gang must survive the zombie attacks",
@@ -41,49 +36,47 @@ rules = ["The rules to this game are simple...",
     "3. If you kill all 10 zombies, you win.",
     "4. There are 10 zombies.  Good luck." ]
 
-# * Intro
+#! Introduction
 scroll("Hello player, please type in your name . . . ")
-line
+#! Player name
 @player_name = gets.chomp
+#! Title screen
 scroll(". . . . . . . initiating . . . . . . .")
-line
-scroll(bar)
-line
-scroll(title)
-line
-scroll(bar)
-line
+scroll(@bar, 0.01)
+scroll(title, 0.005)
+scroll(@bar, 0.01)
+#! Rules
 scroll("#{@player_name}, let's play!")
-line
-rules.each{|string| scroll(string); line }
-line
-line
+rules.each{|string| scroll(string) }
+scroll(@bar, 0.01)
+
 
 def game_play
+    @bar= "============================================"
+    #! Win Condition
     if Character.where({alive: true}).length == 0
         scroll(Losing, 0.001)
+        scroll(@bar, 0.01)
         scroll("Good job #{@player_name}.")
-        line
         return
     elsif Zombie.where({alive: true}).length == 0
         scroll(Winning, 0.001)
+        scroll(@bar, 0.01)
         scroll("Better luck, try again next time #{@player_name}")
-        line
         return
     end
+    #! Choose Character
     character_obj = choose_character
-    line
-    line
-    show_zombie_with_stats.each {|stat| scroll(stat, 0.0); line}
+    #! Show Zombie
+    show_zombie_with_stats.each {|stat| scroll(stat) }
     zombie_obj = select_zombie
-    line
-    line
+    #! Choose weapon and goes into minigame
     results = minigame(create_fight(character_obj, zombie_obj))
-    line
-    line
+    scroll(@bar, 0.01)
+    #! uses results to either kill human or zombie
     input_result(results, character_obj, zombie_obj)
-    line 
-    line
+    scroll(@bar, 0.01)
+    #! Recurssive Gameplay
     game_play
 end
 
