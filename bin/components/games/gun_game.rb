@@ -8,6 +8,13 @@ end
 
 def gun_game_mini
     #! Get current zombie name
+
+    def countdown
+        3.downto(1) do |i|
+            puts "#{'%2d' % i}"
+            sleep 1
+        end
+    end
     
     def zombie
         Zombie.where({alive: true})[0]
@@ -18,8 +25,8 @@ def gun_game_mini
     scroll("========================================================================")
     scroll(" ")
     scroll(" ")
-    #! Game stars
-    scroll("5.....  4.....  3.....  2.....  1.....", 0.2)
+    #! Game starts
+    countdown
     points = 0
     count = 0
     while count < 10 do
