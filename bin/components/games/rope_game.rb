@@ -79,3 +79,4 @@ def rope_game_mini
     return false
 end
 
+rope_game_mini

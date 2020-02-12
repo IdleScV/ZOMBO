@@ -24,7 +24,7 @@ def gun_game_mini
     while count < 10 do
         #! Generate a random food item
         food = Faker::Food.dish
-        scroll("#{zombie.name} loves to eat #{food}!", 0.01)
+        scroll("#{zombie.name} loves to eat ...#{food}!", 0.01)
         scroll("TYPE IT FAST!")
         #! User inputs food item
         input = gets.chomp

@@ -7,7 +7,7 @@ def scroll(text, mili_s=0.03)
 end
 
 def knife_game_mini
-    
+    breaker = "====================================================================="
     intro = <<-INFO 
 You've chosen to stab the zombie.  
 Stab with your "enter" key as many times as you can.  
@@ -24,19 +24,21 @@ May your mind be quick and your finger be quicker.
         while y < x + 5
             input = gets.chomp
             if Time.now.to_i < x + 5
-                print "Stab!"
+                scroll("Stab!", 0.01)
                 counter += 1
             else
-                print "Time's up!"
+                scroll("=====================================================================", 0.00005)
+                scroll("Time's up!", 0.0001)
             end
             y = Time.now.to_i
         end
-        puts "You stabbed that sucker #{counter} times!"
+        sleep 2
+        scroll( "You stabbed that sucker #{counter} times!", 0.0001)
         if counter >= 30
-            puts "You win this round! Appreciate having your brain while you can."
+            scroll("You win this round! Appreciate having your brain while you can.")
             return true
         else
-            puts "You lose this round. He ate your brain."
+            scroll("You lose this round. He ate your brain.")
             return false
         end
     end
@@ -44,6 +46,7 @@ May your mind be quick and your finger be quicker.
     def countdown
     3.downto(1) do |i|
         puts "#{'%2d' % i}"
+        scroll( "      . . . . . . . . . . . . . .", 0.005)
         sleep 1
     end
     end
@@ -54,13 +57,15 @@ May your mind be quick and your finger be quicker.
     
     #! Game Starts
     scroll(intro)
+    scroll(breaker, 0.005)
     sleep 1
     countdown
+    scroll(breaker, 0.005)
     start
 
 end
 
-# puts knife_game_mini
+puts knife_game_mini
 
 
 
