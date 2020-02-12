@@ -48,8 +48,8 @@ EOF
 rules = ["The rules to this game are simple...", 
     "1. At least one member of your gang must survive the zombie attacks",
     "2. Each round, pick a member and a weapon to face off against the zombie wave",
-    "3. If you kill all 10 zombies, you win.",
-    "4. There are 10 zombies.  Good luck." ]
+    "3. If you kill all 10 zombies, you win.", 
+    "                Good luck!"]
 
 #! Introduction
 scroll("Hello player, please type in your name . . . ")
