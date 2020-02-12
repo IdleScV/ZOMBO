@@ -20,8 +20,9 @@ You have #{chance_max} guesses.
             input = gets.chomp.to_i
             if input < x
                 scroll("Too low!")
-                puts("---------------------------------------------------")
+                scroll("--------------------------------------------", 0.01)
                 if chances < num_chances - 1
+                    scroll("You have #{num_chances - chances - 1} chances left.")
                     scroll("Guess again!")
                 else
                     scroll("You're out of luck.  Neck slashing time!")
@@ -29,8 +30,9 @@ You have #{chance_max} guesses.
                 end
             elsif input > x
                 scroll("Too high!")
-                puts("---------------------------------------------------")
+                scroll("--------------------------------------------", 0.01)
                 if chances < num_chances - 1
+                    scroll("You have #{num_chances - chances - 1} chances left.")
                     scroll("Guess again!")
                 else
                     scroll("You're out of luck.  Neck slashing time!")
@@ -45,7 +47,7 @@ You have #{chance_max} guesses.
     end
     
     scroll(intro)
-    scroll("---------------------------------------------------")
+    scroll("--------------------------------------------", 0.001)
     guessing_game(chance_max)
 end
-# puts sword_game_mini
+# sword_game_mini
