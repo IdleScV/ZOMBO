@@ -34,13 +34,10 @@ def candlestick_game_mini
     correct_answer = question_list.map{|question| Base64.decode64(question[1])}
     incorrect_answers = question_list.map{|question| question[2]}.map{|answer_set| answer_set.map{|answer| Base64.decode64(answer)}}
 
-    #! random number but does not repeat
-    used_numers = []
-    number_check = rand(0..24)
     
 
-    number = 
-
+            
+    
 
     
     def ask_question(question, correct_answer, incorrect_answers, num)
@@ -48,47 +45,79 @@ def candlestick_game_mini
         
 
         array = incorrect_answers[num] << correct_answer[num]
-        puts "==============================="
-        print question[num]
+        scroll("===========================================", 0.01)
+        scroll( question[num] + ". . . ")
         puts " "
         array.shuffle!
-        array.each{|answer| print "#{array.index(answer) + 1}. #{answer}"; puts " "}
-        puts "==============================="
-        puts "Enter the correct answer number"
-        # puts correct_answer[num] #! CORRECT ANSWER TESTER
+        array.each{|answer| scroll( "#{array.index(answer) + 1}. #{answer}", 0.02); puts " "}
+        scroll( "===========================================", 0.01)
+        scroll( "Enter the correct answer number")
+        puts correct_answer[num] #! CORRECT ANSWER TESTER
         input = gets.chomp
         if array[input.to_i - 1] == correct_answer[num]
-            puts "Correct!"
+            
+            scroll("Correct!")
+            array = []
             return true
         else 
-            puts "Incorrect. The correct answer is #{correct_answer[num]}."
+            scroll("Incorrect. The correct answer is #{correct_answer[num]}.")
+            array = []
             return false
         end
         
     end
 
-    def play(question, correct_answer, incorrect_answers, number)
+
+
+    def play(question, correct_answer, incorrect_answers)
         intro = <<-'OKOK'
 
+        add  instructions here
+        Must get 7 out of 10 quetions correct
 
-
-
-
+        
         OKOK
         
         def zombie
             Zombie.where({alive: true})[0]
         end
+        
+        tries = 10
+        #! random number but does not repeat
+        used_numbers = []
+        def number_checker(used_numbers)  
+            number = rand(1..24)
+            if used_numbers.include?(number)
+                number_checker(used_numbers)
+            else  
+                used_numbers << number
+                return number
+            end
+        end
 
+        #! Introduction
+        scroll("===========================================", 0.01)
+        scroll(intro, 0.02)
+        scroll("===========================================", 0.01)
 
-        puts intro
         points = 0
+        tries.times {
+        scroll("#{zombie.name} asks . . . ")
+        ask_question(question, correct_answer, incorrect_answers, number_checker(used_numbers)) ? points += 1 : nil
+        #! Win cheecker
+        if points == 7 
+            scroll("-----------------------------------------------", 0.01)
+            scroll("You have killed the zombie with a candle stick!")
+            scroll("-----------------------------------------------", 0.01)
+            return true
+        end
 
-        5.times {
-        puts "#{zombie.name} asks . . . "
-        ask_question(question, correct_answer, incorrect_answers) ? points += 1 : nil
-        puts "You have #{points} points... "
+        scroll("You have #{points} out of 7 needed points ", 0.02)
         }
+        scroll("--------------------------------------------------------------", 0.01)
+        scroll("It seems like the candlestick wasn't the best choice huh. . . ")
+        scroll("--------------------------------------------------------------", 0.01)
+        return false
     end
 
     play(question, correct_answer, incorrect_answers)
@@ -96,4 +125,4 @@ def candlestick_game_mini
 end
 
 
-candlestick_game_mini
+# puts candlestick_game_mini

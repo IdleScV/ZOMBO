@@ -16,8 +16,8 @@ def show_zombie_with_stats
     zombie = select_zombie
     arr = [ "****************************************************************",
             "A zombie named "+ zombie["name"] + " appears from the dark . . . .", 
-            "He says . . ." + zombie["catchphrase"], 
-            "He has " + zombie["health"].to_s + " health points...",
+            "He says . . .",
+            zombie["catchphrase"],
             "****************************************************************",
             ". . . . . . . . . . .Here are your weapons. . . . . . . . . . . " ]
     arr

@@ -32,13 +32,31 @@ May your mind be quick and your finger be quicker.
             end
             y = Time.now.to_i
         end
+        #! Failsafe
+        def failsafe(text)
+            scroll("Type 'i'm done stabbing' to continue. . . ")
+            input = gets.chomp
+            if input == "i'm done stabbing"
+                puts("         -------------          ")
+                scroll("Ok lets go #{text}.")
+                puts("         -------------          ")
+            elsif input.length > 7
+                puts("         -------------          ")
+                scroll("ok #{text}, close enough . . .")
+                puts("         -------------          ")
+            else 
+                failsafe(text)
+            end
+        end
         
         scroll( "You stabbed that sucker #{counter} times!", 0.0001)
         if counter >= 30
             scroll("You win this round! Appreciate having your brain while you can.")
+            failsafe("champ")
             return true
         else
             scroll("You lose this round. He ate your brain.")
+            failsafe("bummer")
             return false
         end
     end
@@ -62,21 +80,11 @@ May your mind be quick and your finger be quicker.
     scroll(breaker, 0.005)
     start
 
+    
 end
 
-puts knife_game_mini
+# puts knife_game_mini
 
-
-
-
-# count_key_presses(prompt)
-# puts "you lose!"
-
-# puts "Go!"
-# Timeout::timeout(5) do
-# ans = gets.chomp
-# end
-# puts (ans || "User did not respond")
 
 
 

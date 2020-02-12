@@ -1,6 +1,6 @@
 require_relative '../../config/environment'
 require_relative '../components/choose_weapon.rb'
-# require_relative './games/candlestick_game.rb'
+require_relative './games/candlestick_game.rb'
 require_relative './games/gun_game.rb'
 require_relative './games/knife_game.rb'
 require_relative './games/rope_game.rb'
@@ -37,7 +37,6 @@ def gun_game
 end
 
 def sword_game
-    
     sword_game_mini
 end
 
@@ -45,14 +44,6 @@ def rope_game
     rope_game_mini
 end
 
-def candlestick_game
-    
-    #! Create mini game code here
-
-
-
-
-
-    scroll("You lose")
-    return false
+def candlestick_game  
+    candlestick_game_mini
 end

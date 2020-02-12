@@ -25,6 +25,7 @@ Zombie.create(name: Faker::Games::Witcher.monster, catchphrase: Faker::TvShows::
 }
 
 scroll( "A new game has been rendered")
-scroll(". . . . . . . . . . . . . .")
-scroll( "There are #{Character.count} new Champions and #{Zombie.count} new Zombies")
-scroll(". . . . . . . . . . . . . . ")
+scroll("--------------------------------------------")
+scroll("There are #{Character.count} new Champions, ")
+scroll("and #{Zombie.count} new Zombies")
+scroll("--------------------------------------------")

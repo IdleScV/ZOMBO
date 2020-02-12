@@ -1,4 +1,4 @@
-def scroll(text, mili_s=0.03)#! deploy at 0.03
+def scroll(text, mili_s=0.00)#! deploy at 0.03
     text.each_char{|c| putc c ; sleep mili_s; $stdout.flush }
     puts " "
 end
@@ -87,11 +87,22 @@ def game_play
     zombie_obj = select_zombie
     #! Choose weapon and goes into minigame
     results = minigame(create_fight(character_obj, zombie_obj))
+    
     scroll(@bar, 0.01)
     #! uses results to either kill human or zombie
     input_result(results, character_obj, zombie_obj)
     scroll(@bar, 0.01)
     #! Recurssive Gameplay
+    
+
+    def failsafe
+        scroll("Enter any key to continue")
+        key = gets.chomp
+    end
+
+
+    failsafe
+
     game_play
 end
 
