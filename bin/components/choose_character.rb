@@ -20,12 +20,8 @@ end
 
 
 def show_available_characters
-
     scroll("Here are your champion choices for today...")
-    
-
     character_names = available_character_names
-    
     count = 0
     while count < character_names.length
         scroll("#{count + 1}. #{character_names[count]}")
@@ -33,29 +29,30 @@ def show_available_characters
     end
 end
 
+def get_input(names)
+    scroll("Enter the number of your champion.")
+    input = gets.chomp.to_i
+    if input < 6
+        index = input - 1
+        character_name = names[index]
+        character_obj = Character.all.detect{|char_obj| char_obj.name == character_name}
+        scroll("Hello, my name is #{names[index]}.  Whenever I'm down, I always remember my favorite motto: #{character_obj.catchphrase}", 0.02)
+    else
+        puts "You've entered an incorrect value."
+        get_input(available_character_names)
+    end
+    return character_obj
+end
 
 def choose_character
-    
-
     show_available_characters
-    
-    character_names = available_character_names
-
     scroll("Select your character...")
     scroll("============================================")
-    scroll("Enter the number of your champion.")
-    
-    input = gets.chomp
 
-    new_count = input.to_i - 1
-    scroll("You've selected #{character_names[new_count]}")
-    
-    character_name = character_names[new_count]
-    character_obj = Character.all.detect{|char_obj| char_obj.name == character_name}
-
-    return character_obj
-
+    get_input(available_character_names)
 end
+
+# choose_character
 
 
 
