@@ -1,5 +1,23 @@
+def scroll(text, mili_s=0.03)#! deploy at 0.03
+    text.each_char{|c| putc c ; sleep mili_s; $stdout.flush }
+    puts " "
+end
+
 require_relative '../config/environment'
-require_relative '../db/seeds.rb'
+def save_function
+puts "for new game enter 'N', old game enter 'O'"
+    save = gets.chomp
+    if save.downcase == "n"
+        require_relative '../db/seeds.rb'
+    elsif save.downcase == "o"
+        require_relative '../db/old.rb'
+    else 
+        scroll("That's not an option, try again . . . ")
+        save_function
+    end
+end
+
+save_function
 require_relative './components/ascii_art.rb'
 require_relative './components/choose_character.rb'
 require_relative './components/show_zombie.rb'
@@ -8,10 +26,7 @@ require_relative './components/game_result.rb'
 
 
 
-def scroll(text, mili_s=0.03)#! deploy at 0.03
-    text.each_char{|c| putc c ; sleep mili_s; $stdout.flush }
-    puts " "
-end
+
 
 
 title = <<-'EOF'

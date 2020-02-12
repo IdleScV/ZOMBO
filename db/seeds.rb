@@ -1,4 +1,8 @@
 require 'faker'
+def scroll(text, mili_s=0.03)
+    text.each_char{|c| putc c ; sleep mili_s; $stdout.flush }
+    puts " "
+end
 
 Character.destroy_all
 Weapon.destroy_all
@@ -20,4 +24,7 @@ Weapon.create(weapon_name: "candlestick", strength: 10)
 Zombie.create(name: Faker::Games::Witcher.monster, catchphrase: Faker::TvShows::Community.quotes, health: rand(4..9), alive: 1)
 }
 
-p "finished seed"
+scroll( "A new game has been rendered")
+scroll(". . . . . . . . . . . . . .")
+scroll( "There are #{Character.count} new Champions and #{Zombie.count} new Zombies")
+scroll(". . . . . . . . . . . . . . ")

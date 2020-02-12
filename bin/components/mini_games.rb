@@ -29,15 +29,7 @@ def minigame(weapon_obj)
 end
 
 def knife_game
-    
-    #! Create mini game code here
-
-
-
-
-
-    scroll("You lose this round . . .")
-    return false
+    knife_game_mini
 end
 
 def gun_game

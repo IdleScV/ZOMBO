@@ -63,4 +63,3 @@ def gun_game_mini
     
 end
 
-gun_game_mini
