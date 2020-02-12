@@ -6,3 +6,6 @@ gem "sqlite3"
 gem "pry"
 gem "require_all"
 gem "faker"
+require 'json'
+gem 'rest-client'
+gem 'awesome-print'

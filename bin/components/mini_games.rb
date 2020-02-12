@@ -38,10 +38,7 @@ end
 
 def sword_game
     
-    #! Create mini game code here
-
-    scroll("You lose")
-    return false
+    sword_game_mini
 end
 
 def rope_game
