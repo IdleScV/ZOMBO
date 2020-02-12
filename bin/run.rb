@@ -82,7 +82,7 @@ def game_play
     end
     #! Choose Character
     character_obj = choose_character
-    binding.pry
+    
     #! Show Zombie
     show_zombie_with_stats.each {|stat| scroll(stat) }
     zombie_obj = select_zombie

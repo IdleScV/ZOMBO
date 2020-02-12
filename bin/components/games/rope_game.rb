@@ -98,4 +98,4 @@ def rope_game_mini
     return false
 end
 
-puts rope_game_mini
+# puts rope_game_mini
