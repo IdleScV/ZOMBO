@@ -56,7 +56,7 @@ scroll("Hello player, please type in your name . . . ")
 #! Player name
 @player_name = gets.chomp
 #! Title screen
-scroll(". . . . . . . initiating . . . . . . .")
+scroll(". . . . . . . . initiating . . . . . . . . .")
 scroll(@bar, 0.01)
 scroll(title, 0.005)
 scroll(@bar, 0.01)
@@ -82,6 +82,7 @@ def game_play
     end
     #! Choose Character
     character_obj = choose_character
+    binding.pry
     #! Show Zombie
     show_zombie_with_stats.each {|stat| scroll(stat) }
     zombie_obj = select_zombie

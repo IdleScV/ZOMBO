@@ -38,11 +38,11 @@ May your mind be quick and your finger be quicker.
             input = gets.chomp
             if input == "i'm done stabbing"
                 puts("         -------------          ")
-                scroll("Ok lets go #{text}.")
+                scroll("Ok lets go, #{text}.")
                 puts("         -------------          ")
             elsif input.length > 7
                 puts("         -------------          ")
-                scroll("ok #{text}, close enough . . .")
+                scroll("ok, #{text}, close enough . . .")
                 puts("         -------------          ")
             else 
                 failsafe(text)
