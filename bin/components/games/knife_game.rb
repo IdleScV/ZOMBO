@@ -24,7 +24,7 @@ May your mind be quick and your finger be quicker.
         while y < x + 5
             input = gets.chomp
             if Time.now.to_i < x + 5
-                scroll("Stab!", 0.01)
+                scroll("[]+++||=======> STAB! ", 0.0001)
                 counter += 1
             else
                 scroll("=====================================================================", 0.00005)
