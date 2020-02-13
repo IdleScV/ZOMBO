@@ -12,11 +12,11 @@ ZOMBO is a zombie-themed, CLI-based game that was created with ruby.  It contain
 ## Sample play :
 ------
 ### Knife Game 
-![](https://i.gyazo.com/4955174b799ca46877b3766743fdfbc5.gif)
+![](./git_files/knife_game_sample.gif)
 ### Candlestick Game
-![](https://i.gyazo.com/e032253024112f1822d999e3554bf07f.gif)
+![](./git_files/candlestick_game_sample.gif)
 ### Gun Game
-![](https://i.gyazo.com/db296249089cf7d4497c931de3cbb822.gif)
+![](./git_files/gun_game_sample.gif)
 
 ### Installation
 ------
