@@ -15,61 +15,91 @@ def gun_game_mini
             sleep 1
         end
     end
+
+    def times_up(win_points, earned_points, food)
+               
+        scroll("- - - - - - - - - - - - - - - - - - - - - - ")
+        puts "Time's up!"
+        puts "You scored a total of #{earned_points} points!"
+        
+        if earned_points >= win_points
+            scroll("- - - - - - - - - - - - - - - - - - - - - - ")
+            scroll("                  You WIN!                  ")
+            scroll("#{zombie.name} drops backwards into a pile of ..  ")
+            scroll("                                    #{food}     ")
+            scroll("- - - - - - - - - - - - - - - - - - - - - - ")
+        else
+             #! Lost
+             scroll("- - - - - - - - - - - - - - - - - - - - - - ")
+             scroll("        Your Champion has been eaten        ")
+             scroll("#{zombie.name} says...                    ")
+             scroll(  "Who knew humans tasted better than #{food}? Yum!           ")
+             scroll("- - - - - - - - - - - - - - - - - - - - - - ")
+        end
+
+    end
     
     def zombie
         Zombie.where({alive: true})[0]
     end
+    win_points = 7
+    number_seconds = 30
     #! Instructions
-    scroll("Type #{zombie.name}'s favorite foods correctly 7 times to shoot him dead!")
-    scroll("You have 10 chances!")
-    scroll("========================================================================")
-    scroll(" ")
+    scroll("Type #{zombie.name}'s favorite foods correctly #{win_points} times to shoot him dead!")
+    scroll("You have #{number_seconds} seconds!")
+    scroll("============================================", 0.01)
     scroll(" ")
     #! Game starts
     countdown
     points = 0
-    count = 0
-    while count < 10 do
-        #! Generate a random food item
-        food = Faker::Food.dish
-        scroll("#{zombie.name} loves to eat ...#{food}!", 0.01)
-        scroll("TYPE IT FAST!")
-        #! User inputs food item
-        input = gets.chomp
-        scroll("LOCK AND LOADED . . .                    ", 0.01)
-        #! Checks if input == food
-        if input.downcase == food.downcase
-            scroll("                                     BANG! BANG! BANG!", 0.003)
-            points += 1
-            
-            #! Win
-            if points == 7
-                scroll("- - - - - - - - - - - - - - - - - - - - - - - - - - - -")
-                scroll("                        You WIN!                       ")
-                scroll("#{zombie.name} drops backwards into a pile of ..  ")
-                scroll("                                     #{food}           ")
-                scroll("- - - - - - - - - - - - - - - - - - - - - - - - - - - -")
-                       
-                return true
-            end
-        else
-            scroll("                                  PEW! PEW! YOU MISSED!!!", 0.003) 
-        end
-        count += 1
-        scroll("           shots  hit #{points.to_s}", 0.003)  
-        scroll("           shots left #{10 - count}", 0.003)  
-        scroll("- - - - - - - - - - - - - - - - - - - - - - - - - - - -")
-        
-    end
-    #! Lost
-                scroll("- - - - - - - - - - - - - - - - - - - - - - - - - - - -")
-                scroll("             You Champion has been eaten                       ")
-                scroll("            #{zombie.name}:                    ")
-                scroll("who knew humans tasted better than #{food}? Yum!           ")
-                scroll("- - - - - - - - - - - - - - - - - - - - - - - - - - - -")
-    return false
-    
+    # count = 0
+    x = Time.now.to_i
+    y = Time.now.to_i
+    end_time = x + number_seconds
+    while y <= end_time
+            #! Generate a random food item
+            scroll("============================================", 0.002)
+            food = Faker::Food.dish
+            scroll("#{zombie.name} loves to eat ... #{food}!", 0.01)
+            scroll("TYPE IT FAST!", 0.005)
+            #! User inputs food item
+            input = gets.chomp
+            scroll("LOCK AND LOADED . . .                    ", 0.005)
+            #! Checks if input == food
+            if input.downcase == food.downcase
+                if Time.now.to_i < end_time
+                    time_left = end_time - Time.now.to_i
+                    scroll("                                     BANG! BANG! BANG!", 0.003)
+                    scroll("                                     #{time_left} seconds remaining", 0.003)
+                    points += 1
+                    y = Time.now.to_i
+                else
+                    times_up(win_points, points, food)
+                        if points >= win_points
+                            return true
+                        else 
+                            return false
+                        end
+                end
+            else
+                if Time.now.to_i < end_time
+                    time_left = end_time - Time.now.to_i
+                    scroll("                                     PEW! PEW! YOU MISSED!!!", 0.003) 
+                    scroll("                                     #{time_left} seconds remaining", 0.003)
+                    y = Time.now.to_i
+                else
+                    times_up(win_points, points, food)
+                        if points >= win_points
+                            return true
+                        else
+                            return false
+                        end
+                end
+            end 
+    end  
 end
+    
 
-# puts gun_game_mini
+
+puts gun_game_mini
 
