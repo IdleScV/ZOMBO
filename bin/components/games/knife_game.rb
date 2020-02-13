@@ -7,7 +7,7 @@ def scroll(text, mili_s=0.03)
 end
 
 def knife_game_mini
-    breaker = "====================================================================="
+    breaker = "============================================"
     intro = <<-INFO 
 You've chosen to stab the zombie.  
 Stab with your "enter" key as many times as you can.  
@@ -27,7 +27,7 @@ May your mind be quick and your finger be quicker.
                 scroll("[]+++||=======> STAB! ", 0.0001)
                 counter += 1
             else
-                scroll("=====================================================================", 0.00005)
+                scroll("============================================", 0.00005)
                 scroll("Time's up!", 0.0001)
             end
             y = Time.now.to_i
@@ -37,13 +37,13 @@ May your mind be quick and your finger be quicker.
             scroll("Type 'i'm done stabbing' to continue. . . ")
             input = gets.chomp
             if input == "i'm done stabbing"
-                puts("         -------------          ")
+                puts("                  ")
                 scroll("Ok lets go, #{text}.")
-                puts("         -------------          ")
+                puts("                  ")
             elsif input.length > 7
-                puts("         -------------          ")
+                puts("                  ")
                 scroll("ok, #{text}, close enough . . .")
-                puts("         -------------          ")
+                puts("                  ")
             else 
                 failsafe(text)
             end
@@ -51,11 +51,17 @@ May your mind be quick and your finger be quicker.
         
         scroll( "You stabbed that sucker #{counter} times!", 0.0001)
         if counter >= 30
-            scroll("You win this round! Appreciate having your brain while you can.")
+            scroll("============================================")
+            scroll("           You win this round!")
+            scroll("Appreciate having your brain while you can.")
+            scroll("============================================")
             failsafe("champ")
             return true
         else
-            scroll("You lose this round. He ate your brain.")
+            scroll("============================================")
+            scroll("           You lose this round, ")
+            scroll("            he ate your brain.")
+            scroll("============================================")
             failsafe("bummer")
             return false
         end

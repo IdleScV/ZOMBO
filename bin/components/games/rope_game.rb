@@ -20,7 +20,7 @@ def rope_game_mini
     wordarr.length.times{
         blankarr << "__"
     }
-
+    wrong_letter = []
     #? Our Introduction to how the game is played
     breaker = "============================================"
     intro = ["You have chosen to fight #{zombie["name"]} with a rope. . . .",
@@ -30,8 +30,9 @@ def rope_game_mini
     step1 = "Please choose a letter from 'a' to 'z'"
 
     #? Method that allows the game to be played.
-    def changeword(wordarr, blankarr)
+    def changeword(wordarr, blankarr, wrong_letter)
         char = gets.chomp
+        puts " "
         input = char.downcase
         indexes = wordarr.each_index.select{|i| wordarr[i] == input}
             #? action if letter guessed is right
@@ -46,7 +47,8 @@ def rope_game_mini
                 end
                 return true
             #? action if letter guessed is false
-            else 
+            else
+                wrong_letter << input + " "
                 scroll("'#{input}' is not a letter in the word")
                 scroll("============================================", 0.005)
                 p blankarr
@@ -61,8 +63,8 @@ def rope_game_mini
         #? Game Intro
         puts breaker
         intro.map{|x| scroll(x)}
-        p blankarr
         puts breaker
+        
         p blankarr
         #? Chances is 6
         chances = 6
@@ -70,31 +72,38 @@ def rope_game_mini
         
         while count < chances do
             scroll(step1)
-            scroll( "You have #{chances - count} chances left")
+            scroll( "You have #{chances - count} lives left")
+
+            if wrong_letter.length > 0
+                puts ("wrong guesses . . . " + wrong_letter.join(''))
+                
+            end
+            
+            puts (" ")
             #? wrong guess will increase count by 1
 
             # p word #! Testing
-            change = changeword(wordarr, blankarr)
+            change = changeword(wordarr, blankarr, wrong_letter)
             if change == false
                 count += 1
             end
             # ! Win 
             if blankarr.join('') == wordarr.join('')
-                puts (' ')
-                puts (' ')
-                scroll("                            You did it!             ")
-                puts (' ')
-                scroll("You have wrangled #{zombie.name} to death with your excellent roping skills!")
+                scroll("============================================")
+                scroll("                You did it! ")
+                scroll("You have wrangled #{zombie.name} to death")
+                scroll("with your excellent roping skills!")
+                scroll("============================================")
                 return true
             end        
         end
     # ! Lost
-    puts (' ')
-    puts (' ')
-    scroll("You have lost! the animal was #{wordarr.join('')}. . . .")
-    puts (' ')
-    scroll("You have been wrangled #{zombie.name} to death by your own rope.")
-    
+
+    scroll("============================================")
+    scroll("                You have lost! ")
+    scroll("the animal was #{wordarr.join('')}")
+    scroll("You have been killed by #{zombie.name} ")
+    scroll("============================================")
     return false
 end
 

@@ -35,11 +35,20 @@ You have #{chance_max} guesses.
                     scroll("You have #{num_chances - chances - 1} chances left.")
                     scroll("Guess again!")
                 else
-                    scroll("You're out of luck.  Neck slashing time!")
+                    scroll("- - - - - - - - - - - - - - - - - - - - - - - - - - - -")
+                    scroll("                You're out of luck.                      ")
+                    scroll("#{zombie.name}:                    ")
+                    scroll("                Neck slashing time!           ")
+                    scroll("- - - - - - - - - - - - - - - - - - - - - - - - - - - -")
                     return false
                 end
             elsif input == x
-                scroll "You win! Enjoy having a neck!"
+              
+                scroll("- - - - - - - - - - - - - - - - - - - - - - - - - - - -")
+                scroll("            You win! Enjoy having a neck!                      ")
+                scroll("#{zombie.name}:                    ")
+                scroll("              Nooo! WHAT ABOUT MY NECK?!            ")
+                scroll("- - - - - - - - - - - - - - - - - - - - - - - - - - - -")
                 return true
             end
             chances += 1
