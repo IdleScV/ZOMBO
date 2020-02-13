@@ -35,7 +35,7 @@ You have #{chance_max} guesses.
                     scroll("You have #{num_chances - chances - 1} chances left.")
                     scroll("Guess again!")
                 else
-                    scroll("============================================"
+                    scroll("============================================")
                     scroll("           You're out of luck.                      ")
                     scroll("#{zombie.name}:                    ")
                     scroll("           Neck slashing time!           ")

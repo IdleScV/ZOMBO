@@ -3,7 +3,7 @@ require 'pry'
 
 def scroll(text, mili_s=0.03)
     text.each_char{|c| putc c ; sleep mili_s; $stdout.flush }
-    puts " "
+    puts(" ")
 end
 
 
@@ -28,7 +28,7 @@ def pick_weapon
     if chosen_weapon = Weapon.all.detect {|weapon| weapon["weapon_name"] == userinput}
         return chosen_weapon
     else 
-        scroll("Hey, that's not a valid weapon . . . ", 0.01
+        scroll("Hey, that's not a valid weapon . . . ", 0.01)
         puts(" ")
         scroll("Try again. . . ", 0.01)
         puts(" ")
