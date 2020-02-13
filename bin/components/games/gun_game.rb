@@ -45,8 +45,8 @@ def gun_game_mini
     win_points = 7
     number_seconds = 30
     #! Instructions
-    scroll("Type #{zombie.name}'s favorite foods correctly #{win_points} times to shoot him dead!")
-    scroll("You have #{number_seconds} seconds!")
+    scroll("Type #{zombie.name}'s favorite foods correctly #{win_points} times to shoot him dead!", 0.05)
+    scroll("You have #{number_seconds} seconds!", 0.05)
     scroll("============================================", 0.01)
     scroll(" ")
     #! Game starts
@@ -101,5 +101,5 @@ end
     
 
 
-puts gun_game_mini
+# puts gun_game_mini
 

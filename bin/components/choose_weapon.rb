@@ -25,7 +25,15 @@ end
 
 def pick_weapon
     userinput = weapon_choices
-    chosen_weapon = Weapon.all.detect {|weapon| weapon["weapon_name"] == userinput}
+    if chosen_weapon = Weapon.all.detect {|weapon| weapon["weapon_name"] == userinput}
+        return chosen_weapon
+    else 
+        scroll("Hey, that's not a valid weapon . . . ", 0.01
+        puts(" ")
+        scroll("Try again. . . ", 0.01)
+        puts(" ")
+        pick_weapon
+    end
 end
 
 def chosen_weapon
