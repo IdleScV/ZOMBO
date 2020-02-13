@@ -13,8 +13,8 @@ ZOMBO is a zombie-themed, CLI-based game that was created with ruby.  It contain
 
 
 ## Sample play : 
-[](https://i.gyazo.com/1996fa87b5734a73608fe810435bc4fb.gif)
-[](https://i.gyazo.com/e032253024112f1822d999e3554bf07f.gif)
+![](https://i.gyazo.com/4955174b799ca46877b3766743fdfbc5.gif)
+![](https://i.gyazo.com/e032253024112f1822d999e3554bf07f.gif)
 
 ### Installation
 
