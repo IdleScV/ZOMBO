@@ -17,23 +17,24 @@ def gun_game_mini
     end
 
     def times_up(win_points, earned_points, food)
-        scroll("- - - - - - - - - - - - - - - - - - - - - - - - - - - -")
+               
+        scroll("- - - - - - - - - - - - - - - - - - - - - - ")
         puts "Time's up!"
         puts "You scored a total of #{earned_points} points!"
         
         if earned_points >= win_points
-            scroll("- - - - - - - - - - - - - - - - - - - - - - - - - - - -")
-            scroll("                        You WIN!                       ")
+            scroll("- - - - - - - - - - - - - - - - - - - - - - ")
+            scroll("                  You WIN!                  ")
             scroll("#{zombie.name} drops backwards into a pile of ..  ")
-            scroll("                                     #{food}           ")
-            scroll("- - - - - - - - - - - - - - - - - - - - - - - - - - - -")
+            scroll("                                    #{food}     ")
+            scroll("- - - - - - - - - - - - - - - - - - - - - - ")
         else
              #! Lost
-             scroll("- - - - - - - - - - - - - - - - - - - - - - - - - - - -")
-             scroll("             Your Champion has been eaten                       ")
+             scroll("- - - - - - - - - - - - - - - - - - - - - - ")
+             scroll("        Your Champion has been eaten        ")
              scroll("#{zombie.name} says...                    ")
              scroll(  "Who knew humans tasted better than #{food}? Yum!           ")
-             scroll("- - - - - - - - - - - - - - - - - - - - - - - - - - - -")
+             scroll("- - - - - - - - - - - - - - - - - - - - - - ")
         end
 
     end
@@ -46,7 +47,7 @@ def gun_game_mini
     #! Instructions
     scroll("Type #{zombie.name}'s favorite foods correctly #{win_points} times to shoot him dead!")
     scroll("You have #{number_seconds} seconds!")
-    scroll("========================================================================")
+    scroll("============================================")
     scroll(" ")
     #! Game starts
     countdown
@@ -89,5 +90,5 @@ end
     
 
 
-# puts gun_game_mini
+puts gun_game_mini
 
