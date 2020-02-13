@@ -44,7 +44,6 @@ _______  _______  _______  ______   _______
 EOF
 
 @bar= "============================================"
-
 rules = ["The rules to this game are simple...", 
     "1. At least one member of your gang must survive the zombie attacks",
     "2. Each round, pick a member and a weapon to face off against the zombie wave",
@@ -55,11 +54,17 @@ rules = ["The rules to this game are simple...",
 scroll("Hello player, please type in your name . . . ")
 #! Player name
 @player_name = gets.chomp
+
 #! Title screen
 scroll(". . . . . . . . initiating . . . . . . . . .")
+
+
+
 scroll(@bar, 0.01)
 scroll(title, 0.005)
 scroll(@bar, 0.01)
+
+
 #! Rules
 scroll("#{@player_name}, let's play!")
 rules.each{|string| scroll(string) }
