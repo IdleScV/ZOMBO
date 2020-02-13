@@ -102,9 +102,9 @@ def candlestick_game_mini
         failsafe
             #! Win cheecker
             if points == correct_answers_needed
-                scroll("-----------------------------------------------", 0.01)
-                scroll("You have killed the zombie with a candle stick!")
-                scroll("-----------------------------------------------", 0.01)
+                scroll("-------------------------------------------", 0.01)
+                scroll("You have killed the zombie with a candlestick!")
+                scroll("-------------------------------------------", 0.01)
                 return true
             end
             scroll("You have #{points} out of 7 needed points ", 0.02)
@@ -112,9 +112,9 @@ def candlestick_game_mini
             puts(" ")
         end
         #! lose because out of tries.
-        scroll("--------------------------------------------------------------", 0.01)
+        scroll("-------------------------------------------", 0.01)
         scroll("It seems like the candlestick wasn't the best choice huh. . . ")
-        scroll("--------------------------------------------------------------", 0.01)
+        scroll("-------------------------------------------", 0.01)
         return false
     end
 
@@ -134,7 +134,7 @@ This Zombie dislikes people who are right.
     #! Selects link
     scroll("Which category would you like to attack?")
     puts(" ")
-    scroll("1. Computer Science|2. History|3. Video Games|4. Television|5. Science and History")
+    scroll("1. Computer Science|2. History|3. Video Games|4. Television|5. Science and Nature")
     scroll("")
     general = "https://opentdb.com/api.php?amount=25&difficulty=medium&type=multiple&encode=base64"
     computer = "https://opentdb.com/api.php?amount=25&category=18&difficulty=easy&type=multiple&encode=base64"
