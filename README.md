@@ -13,7 +13,8 @@ ZOMBO is a zombie-themed, CLI-based game that was created with ruby.  It contain
 
 
 ## Sample play : 
-
+[](https://i.gyazo.com/1996fa87b5734a73608fe810435bc4fb.gif)
+[](https://i.gyazo.com/e032253024112f1822d999e3554bf07f.gif)
 
 ### Installation
 
@@ -46,8 +47,8 @@ $ ruby bin/run.rb
 | Open Trivia DB | [opentdb.com][PlGf] |
 
 #### Created By
-###### Wesley Chen [GitHub](https://github.com/IdleScV)
-###### Lauren Yu [GitHub](https://github.com/laurenyz)
+##### Wesley Chen [GitHub](https://github.com/IdleScV)
+##### Lauren Yu [GitHub](https://github.com/laurenyz)
  
 
 
