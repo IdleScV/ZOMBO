@@ -6,77 +6,77 @@ def scroll(text, mili_s=0.03)
     puts " "
 end
 
-def knife_game_mini
-    breaker = "============================================"
-    intro = <<-INFO 
-You've chosen to stab the zombie.  
-Stab with your "enter" key as many times as you can.  
-Be fast!  You only have 5 seconds before he overpowers you and eats your brain!
-May your mind be quick and your finger be quicker.
-    INFO
-    
-
-    def start
-        puts "GO! Stab the zombie!"
-        x = Time.now.to_i
-        y = Time.now.to_i
-        counter = 0
-        while y < x + 5
-            input = gets.chomp
-            if Time.now.to_i < x + 5
-                scroll("[]+++||=======> STAB! ", 0.0001)
-                counter += 1
-            else
-                scroll("============================================", 0.00005)
-                scroll("Time's up!", 0.0001)
-            end
-            y = Time.now.to_i
-        end
-        #! Failsafe
-        def failsafe(text)
-            scroll("Type 'i'm done stabbing' to continue. . . ")
-            input = gets.chomp
-            if input == "i'm done stabbing"
-                puts("                  ")
-                scroll("Ok lets go, #{text}.")
-                puts("                  ")
-            elsif input.length > 7
-                puts("                  ")
-                scroll("ok, #{text}, close enough . . .")
-                puts("                  ")
-            else 
-                failsafe(text)
-            end
-        end
-        
-        scroll( "You stabbed that sucker #{counter} times!", 0.0001)
-        if counter >= 30
-            scroll("============================================")
-            scroll("           You win this round!")
-            scroll("Appreciate having your brain while you can.")
-            scroll("============================================")
-            failsafe("champ")
-            return true
+def start(stab_number, num_seconds)
+    puts "GO! Stab the zombie!"
+    x = Time.now.to_i
+    y = Time.now.to_i
+    counter = 0
+    while y < x + num_seconds
+        input = gets.chomp
+        if Time.now.to_i < x + num_seconds
+            scroll("[]+++||=======> STAB! ", 0.0001)
+            counter += 1
         else
-            scroll("============================================")
-            scroll("           You lose this round, ")
-            scroll("            he ate your brain.")
-            scroll("============================================")
-            failsafe("bummer")
-            return false
+            scroll("============================================", 0.00005)
+            scroll("Time's up!", 0.0001)
+        end
+        y = Time.now.to_i
+    end
+    #! Failsafe
+    def failsafe(text)
+        scroll("Type 'I'm done stabbing' to continue. . . ")
+        input = gets.chomp
+        if input == "I'm done stabbing"
+            puts("                  ")
+            scroll("Ok. Let's go, #{text}.")
+            puts("                  ")
+        elsif input.length > 7
+            puts("                  ")
+            scroll("ok, #{text}, close enough . . .")
+            puts("                  ")
+        else 
+            failsafe(text)
         end
     end
+    
+    scroll( "You stabbed that sucker #{counter} times!", 0.0001)
+    if counter >= stab_number
+        scroll("============================================")
+        scroll("           You win this round!")
+        scroll("Appreciate having your brain while you can.")
+        scroll("============================================")
+        failsafe("champ")
+        return true
+    else
+        scroll("============================================")
+        scroll("           You lose this round, ")
+        scroll("            he ate your brain.")
+        scroll("============================================")
+        failsafe("bummer")
+        return false
+    end
+end
 
-    def countdown
+def countdown
     3.downto(1) do |i|
         puts "#{'%2d' % i}"
         sleep 1
     end
-    end
+end
 
-    def count_key_presses(prompt)
-        user_input = $stdin.getch
-    end
+
+def knife_game_mini(stab_number = 30, num_seconds = 5)
+    stab_number = stab_number
+    num_seconds = num_seconds
+    breaker = "============================================"
+    intro = <<-INFO 
+You've chosen to stab the zombie.  
+Stab with your "enter" key #{stab_number} times to kill it.
+Be fast!  You only have #{num_seconds} seconds before he overpowers you and eats your brain!
+
+May your mind be quick and your finger be quicker.
+    INFO
+    
     
     #! Game Starts
     scroll(intro)
@@ -84,9 +84,7 @@ May your mind be quick and your finger be quicker.
     sleep 1
     countdown
     scroll(breaker, 0.005)
-    start
-
-    
+    start(stab_number, num_seconds)  
 end
 
 # puts knife_game_mini
