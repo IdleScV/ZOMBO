@@ -8,4 +8,5 @@ gem "require_all"
 gem "faker"
 gem 'json'
 gem 'rest-client'
+gem 'rspec'
 

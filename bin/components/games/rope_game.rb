@@ -6,12 +6,29 @@ def scroll(text, mili_s=0.03)
     puts " "
 end
 
+def zombie
+    Zombie.where({alive: true})[0]
+end
+
+def chance_adjuster
+    if zombie.health <= 5
+        return 7
+    elsif zombie.health == 6
+        return 6
+    elsif zombie.health == 7
+        return 6
+    elsif zombie.health == 8
+        return 5
+    elsif zombie.health == 9
+        return 4
+    else
+        return 3
+    end
+end
+
 def rope_game_mini
 
     #? Gets name of current zombie
-    def zombie
-        Zombie.where({alive: true})[0]
-    end
 
     #? Creating a word and our blank array
     word = Faker::Creature::Animal.name
@@ -24,10 +41,10 @@ def rope_game_mini
     #? Our Introduction to how the game is played
     breaker = "============================================"
     intro = ["You have chosen to fight #{zombie["name"]} with a rope. . . .",
-    "Excellent choice?",
-    "Guess the correct animal to kill the zombie",
+    "Excellent... choice?",
+    "Guess the correct animal to kill the zombie.",
     "Your animal is #{word.length} letters long."]
-    step1 = "Please choose a letter from 'a' to 'z'"
+    step1 = "Please choose a letter from 'a' to 'z'."
 
     #? Method that allows the game to be played.
     def changeword(wordarr, blankarr, wrong_letter)
@@ -58,7 +75,6 @@ def rope_game_mini
         
     end
 
-
     #? Game start
         #? Game Intro
         puts breaker
@@ -67,12 +83,12 @@ def rope_game_mini
         
         p blankarr
         #? Chances is 6
-        chances = 6
+        chances = chance_adjuster
         count = 0
         
         while count < chances do
             scroll(step1)
-            scroll( "You have #{chances - count} lives left")
+            scroll( "You have #{chances - count} lives left.")
 
             if wrong_letter.length > 0
                 puts ("wrong guesses . . . " + wrong_letter.join(''))
@@ -100,9 +116,9 @@ def rope_game_mini
     # ! Lost
 
     scroll("============================================")
-    scroll("                You have lost! ")
+    scroll("              You have lost! ")
     scroll("the animal was #{wordarr.join('')}")
-    scroll("You have been killed by #{zombie.name} ")
+    scroll("#{zombie.name} is going to sick the #{wordarr.join('')} on your friend.")
     scroll("============================================")
     return false
 end

@@ -6,7 +6,7 @@ def scroll(text, mili_s=0.03)
     puts " "
 end
 
-def start(stab_number, num_seconds)
+def start(stab_number, num_seconds = 5)
     puts "GO! Stab the zombie!"
     x = Time.now.to_i
     y = Time.now.to_i
@@ -64,10 +64,13 @@ def countdown
     end
 end
 
+def zombie
+    Zombie.where({alive: true})[0]
+end
 
-def knife_game_mini(stab_number = 30, num_seconds = 5)
-    stab_number = stab_number
-    num_seconds = num_seconds
+def knife_game_mini
+    stab_number = zombie.health * 4
+    num_seconds = 5
     breaker = "============================================"
     intro = <<-INFO 
 You've chosen to stab the zombie.  

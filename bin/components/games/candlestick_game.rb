@@ -187,4 +187,4 @@ This Zombie dislikes people who are right.
 end
 
 
-puts candlestick_game_mini
+# puts candlestick_game_mini
