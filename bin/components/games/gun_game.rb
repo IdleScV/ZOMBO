@@ -47,19 +47,20 @@ def gun_game_mini
     #! Instructions
     scroll("Type #{zombie.name}'s favorite foods correctly #{win_points} times to shoot him dead!")
     scroll("You have #{number_seconds} seconds!")
-    scroll("============================================")
+    scroll("============================================", 0.01)
     scroll(" ")
     #! Game starts
     countdown
     points = 0
-    count = 0
+    # count = 0
     x = Time.now.to_i
     y = Time.now.to_i
     end_time = x + number_seconds
-    while y < end_time
+    while y <= end_time
             #! Generate a random food item
+            scroll("============================================", 0.002)
             food = Faker::Food.dish
-            scroll("#{zombie.name} loves to eat ...#{food}!", 0.01)
+            scroll("#{zombie.name} loves to eat ... #{food}!", 0.01)
             scroll("TYPE IT FAST!", 0.005)
             #! User inputs food item
             input = gets.chomp
@@ -67,22 +68,32 @@ def gun_game_mini
             #! Checks if input == food
             if input.downcase == food.downcase
                 if Time.now.to_i < end_time
+                    time_left = end_time - Time.now.to_i
                     scroll("                                     BANG! BANG! BANG!", 0.003)
-                    scroll("                                     #{end_time - Time.new.to_i} seconds remaining", 0.003)
+                    scroll("                                     #{time_left} seconds remaining", 0.003)
                     points += 1
                     y = Time.now.to_i
                 else
                     times_up(win_points, points, food)
-                    return true
+                        if points >= win_points
+                            return true
+                        else 
+                            return false
+                        end
                 end
             else
                 if Time.now.to_i < end_time
+                    time_left = end_time - Time.now.to_i
                     scroll("                                     PEW! PEW! YOU MISSED!!!", 0.003) 
-                    scroll("                                     #{end_time - Time.new.to_i} seconds remaining", 0.003)
+                    scroll("                                     #{time_left} seconds remaining", 0.003)
                     y = Time.now.to_i
                 else
                     times_up(win_points, points, food)
-                    return false
+                        if points >= win_points
+                            return true
+                        else
+                            return false
+                        end
                 end
             end 
     end  
