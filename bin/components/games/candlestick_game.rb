@@ -3,8 +3,7 @@ require 'json'
 require 'rest-client'
 require 'pry'
 require 'base64'
-# require 'tty-prompt'
-# prompt = TTY::Prompt.new
+
 
 def scroll(text, mili_s=0.03)
     text.each_char{|c| putc c ; sleep mili_s; $stdout.flush }
@@ -17,7 +16,7 @@ def candlestick_game_mini
         #! Picks random question
         array = incorrect_answers[num] << correct_answer[num]
         scroll("===========================================", 0.01)
-        scroll( question[num] + ". . . ")
+        scroll( question[num] )
         puts " "
         #! Shuffles array to randomize answer location
         array.shuffle!
@@ -188,4 +187,4 @@ This Zombie dislikes people who are right.
 end
 
 
-# puts candlestick_game_mini
+puts candlestick_game_mini
