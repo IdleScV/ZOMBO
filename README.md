@@ -8,6 +8,8 @@ ZOMBO is a zombie-themed, CLI-based game that was created with ruby.  It contain
   - Speed Typing (gun)
 
 *Link to play online*
+[![Run on Repl.it](https://repl.it/badge/github/IdleScV/ZOMBO)](https://repl.it/github/IdleScV/ZOMBO)
+
 
 
 ## Sample play : 
@@ -32,10 +34,10 @@ $ ruby bin/run.rb
 
 | Gems | README |
 | ------ | ------ |
-| Faker | [github/faker/README.md][PlDb] |
-| Sinatra-ActiveRecord | [github/sinatra-activerecord/README.md][PlGh] |
-| Pry | [github/pry/README.md][PlGd] |
-| Rest Client | [github/rest-client/README.md][PlOd] |
+| Faker | [github/faker/README][PlDb] |
+| Sinatra-ActiveRecord | [github/sinatra-activerecord/README][PlGh] |
+| Pry | [github/pry/README][PlGd] |
+| Rest Client | [github/rest-client/README][PlOd] |
 
 
 ### APIs
