@@ -184,13 +184,13 @@ def credits
       array = Fight.all[fights]
       if array[:win] == true
           scroll(" ")
-          scroll("#{array.character[:name]} was killed by #{array.zombie[:name]}. . . . ", 0.03)
+          scroll("Champion #{array.character[:name]} took down #{array.zombie[:name]}. . . . ", 0.03)
           scroll(" ")
-          scroll(character_win(array.weapon[:weapon_name]), 0.03)
+          character_win(array.weapon[:weapon_name])
           scroll(" ")
-      elsif array[2][:win] == false
+      elsif array[:win] == false
           scroll(" ")
-          scroll("#{array.zombie[:name]} was killed by #{array.character[:name]}. . . . ", 0.03)
+          scroll("#{array.zombie[:name]} the zombie murdered #{array.character[:name]}. . . . ", 0.03)
           scroll(" ")
           zombie_win(array.weapon[:weapon_name])
           scroll(" ")

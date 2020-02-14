@@ -24,7 +24,7 @@ require_relative './components/show_zombie.rb'
 require_relative './components/mini_games.rb'
 require_relative './components/game_result.rb'
 
-
+# binding.pry
 
 
 
@@ -76,7 +76,7 @@ def game_play
     
     @bar= "============================================"
     #! Win Condition
-    binding.pry
+    # binding.pry
 
     if Character.where({alive: true}).length == 0
         

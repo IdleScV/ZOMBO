@@ -24,7 +24,7 @@ def start(stab_number, num_seconds)
     end
     #! Failsafe
     def failsafe(text)
-        scroll("Type 'I'm done stabbing' to continue. . . ")
+        scroll("Type 'I'm done stabbing' to continue. . . ", 0.001)
         input = gets.chomp
         if input == "I'm done stabbing"
             puts("                  ")

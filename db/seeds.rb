@@ -22,8 +22,8 @@ Weapon.create(weapon_name: "candlestick")
 
 
 Zombie.create(name: Faker::Games::Witcher.monster, catchphrase: Faker::TvShows::DumbAndDumber.quote, health: 5, alive: 1)
-# Zombie.create(name: Faker::Games::Witcher.monster, catchphrase: Faker::TvShows::DumbAndDumber.quote, health: 5, alive: 1)
-# Zombie.create(name: Faker::Games::Witcher.monster, catchphrase: Faker::TvShows::DumbAndDumber.quote, health: 6, alive: 1)
+Zombie.create(name: Faker::Games::Witcher.monster, catchphrase: Faker::TvShows::DumbAndDumber.quote, health: 5, alive: 1)
+Zombie.create(name: Faker::Games::Witcher.monster, catchphrase: Faker::TvShows::DumbAndDumber.quote, health: 6, alive: 1)
 # Zombie.create(name: Faker::Games::Witcher.monster, catchphrase: Faker::TvShows::DumbAndDumber.quote, health: 6, alive: 1)
 # Zombie.create(name: Faker::Games::Witcher.monster, catchphrase: Faker::TvShows::DumbAndDumber.quote, health: 7, alive: 1)
 # Zombie.create(name: Faker::Games::Witcher.monster, catchphrase: Faker::TvShows::DumbAndDumber.quote, health: 7, alive: 1)

@@ -102,9 +102,9 @@ def candlestick_game_mini
         failsafe
             #! Win cheecker
             if points == correct_answers_needed
-                scroll("-------------------------------------------", 0.01)
+                scroll("--------------------------------------------", 0.01)
                 scroll("You have killed the zombie with a candlestick!")
-                scroll("-------------------------------------------", 0.01)
+                scroll("--------------------------------------------", 0.01)
                 return true
             end
             scroll("You have #{points} out of 7 needed points ", 0.02)
@@ -112,9 +112,9 @@ def candlestick_game_mini
             puts(" ")
         end
         #! lose because out of tries.
-        scroll("-------------------------------------------", 0.01)
+        scroll("--------------------------------------------", 0.01)
         scroll("It seems like the candlestick wasn't the best choice huh. . . ")
-        scroll("-------------------------------------------", 0.01)
+        scroll("--------------------------------------------", 0.01)
         return false
     end
 
