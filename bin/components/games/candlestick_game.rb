@@ -61,7 +61,7 @@ def candlestick_game_mini
         end
         #! Attempt setter
         tries = 10
-        correct_answers_needed = 7
+        correct_answers_needed = zombie.health
         #! random number but does not repeat
         used_numbers = []
         def number_checker(used_numbers)  
@@ -113,7 +113,8 @@ def candlestick_game_mini
         end
         #! lose because out of tries.
         scroll("--------------------------------------------", 0.01)
-        scroll("It seems like the candlestick wasn't the best choice huh. . . ")
+        scroll("              It seems like ")
+        scroll("the candlestick wasn't the best choice . . . ")
         scroll("--------------------------------------------", 0.01)
         return false
     end

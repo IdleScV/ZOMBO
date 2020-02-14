@@ -59,7 +59,7 @@ You have #{chance_max} guesses.
                     scroll("           You're out of luck.                      ")
                     scroll("#{zombie.name}:                    ")
                     scroll("           Neck slashing time!           ")
-                    scroll("============================================")
+                    
                     return false
                 end
             elsif input == x
@@ -68,7 +68,7 @@ You have #{chance_max} guesses.
                 scroll("        You win! Enjoy having a neck!                      ")
                 scroll("#{zombie.name}:                    ")
                 scroll("         Nooo! WHAT ABOUT MY NECK?!            ")
-                scroll("============================================")
+                
                 return true
             end
             chances += 1
@@ -79,4 +79,4 @@ You have #{chance_max} guesses.
     scroll("============================================", 0.001)
     guessing_game(chance_max)
 end
-sword_game_mini
+# sword_game_mini

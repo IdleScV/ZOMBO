@@ -68,8 +68,24 @@ def zombie
     Zombie.where({alive: true})[0]
 end
 
+def stab_adjuster
+    if zombie.health <= 5
+        return 30
+    elsif zombie.health == 6
+        return 30
+    elsif zombie.health == 7
+        return 35
+    elsif zombie.health == 8
+        return 35
+    elsif zombie.health == 9
+        return 40
+    else
+        return 45
+    end
+end
+
 def knife_game_mini
-    stab_number = zombie.health * 4
+    stab_number = stab_adjuster
     num_seconds = 5
     breaker = "============================================"
     intro = <<-INFO 

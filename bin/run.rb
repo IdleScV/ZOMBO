@@ -82,7 +82,7 @@ def game_play
         
         scroll(Losing, 0.001)
         scroll(@bar, 0.01)
-        scroll("Good job #{@player_name}. You are a true champion.")
+        scroll("Try again next time #{@player_name}, today was just not your day.")
         
 
         return
@@ -90,8 +90,7 @@ def game_play
        
         scroll(Winning, 0.001)
         scroll(@bar, 0.01)
-        scroll("Try again next time #{@player_name}, today was just not your day.")
-        
+        scroll("Good job #{@player_name}. You are a true champion.")
 
         return
     end
