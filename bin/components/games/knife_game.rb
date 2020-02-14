@@ -108,7 +108,7 @@ May your mind be quick and your finger be quicker.
     start(stab_number, num_seconds)  
 end
 
-puts knife_game_mini
+# puts knife_game_mini
 
 
 

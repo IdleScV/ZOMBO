@@ -1,5 +1,7 @@
 require_relative '../../config/environment'
 require 'pry'
+require 'colorize' 
+require 'colorized_string'
 
 def scroll(text, mili_s=0.03)
     text.each_char{|c| putc c ; sleep mili_s; $stdout.flush }

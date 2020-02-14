@@ -4,15 +4,17 @@ def scroll(text, mili_s=0.00)#! deploy at 0.03
 end
 
 require_relative '../config/environment'
+require 'colorize' 
+require 'colorized_string'
 def save_function
-puts "for new game enter 'N', old game enter 'O'"
+puts "for new game enter 'N', old game enter 'O'".colorize(:light_white)
     save = gets.chomp
     if save.downcase == "n"
         require_relative '../db/seeds.rb'
     elsif save.downcase == "o"
         require_relative '../db/old.rb'
     else 
-        scroll("That's not an option, try again . . . ")
+        scroll("That's not an option, try again . . . ".colorize(:light_white))
         save_function
     end
 end
@@ -51,23 +53,23 @@ rules = ["The rules to this game are simple...",
     "                Good luck!"]
 
 #! Introduction
-scroll("Hello player, please type in your name . . . ")
+scroll("Hello player, please type in your name . . . ".colorize(:light_white))
 #! Player name
 @player_name = gets.chomp
 
 #! Title screen
-scroll(". . . . . . . . initiating . . . . . . . . .")
+scroll(". . . . . . . . initiating . . . . . . . . .", 0.02)
 
 
 
 scroll(@bar, 0.01)
-scroll(title, 0.005)
+scroll(title.colorize(:light_magenta), 0.005)
 scroll(@bar, 0.01)
 
 
 #! Rules
-scroll("#{@player_name}, let's play!")
-rules.each{|string| scroll(string) }
+scroll("#{@player_name}, let's play!".colorize(:light_white))
+rules.each{|string| scroll(string.colorize(:light_blue), 0.02) }
 scroll(@bar, 0.01)
 
 
@@ -126,9 +128,10 @@ end
 
 scroll(" ")
 scroll(" ")
-scroll("           Thanks for playing ")
+scroll("           Thanks for playing!!! ".colorize(:light_white))
 scroll("============================================")
-scroll("                *credits*")
-scroll("             In memorium . . . ")
-scroll(" ")
+scroll("                *credits*".colorize(:light_white))
+scroll("             In memorium . . . ".colorize(:light_white))
+
+
 credits 

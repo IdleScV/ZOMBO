@@ -1,6 +1,9 @@
 require_relative '../../../config/environment'
 require "pry"
 require 'faker'
+require 'colorize' 
+require 'colorized_string'
+
 def scroll(text, mili_s=0.03)
     text.each_char{|c| putc c ; sleep mili_s; $stdout.flush }
     puts " "
@@ -81,7 +84,7 @@ def rope_game_mini
     #? Game start
         #? Game Intro
         puts breaker
-        intro.map{|x| scroll(x)}
+        intro.map{|x| scroll(x.colorize(:blue))}
         puts breaker
         
         p blankarr
@@ -91,7 +94,7 @@ def rope_game_mini
         
         while count < chances do
             scroll(step1)
-            scroll( "You have #{chances - count} lives left.")
+            scroll( "You have #{chances - count} lives left.".colorize(:red))
 
             if wrong_letter.length > 0
                 puts ("wrong guesses . . . " + wrong_letter.join(''))
@@ -109,9 +112,9 @@ def rope_game_mini
             # ! Win 
             if blankarr.join('') == wordarr.join('')
                 scroll("============================================")
-                scroll("                You did it! ")
-                scroll("You have wrangled #{zombie.name} to death")
-                scroll("with your excellent roping skills!")
+                scroll("                You did it! ".colorize(:blue))
+                scroll("You have wrangled #{zombie.name} to death".colorize(:blue))
+                scroll("with your excellent roping skills!".colorize(:blue))
                
                 return true
             end        
@@ -119,9 +122,9 @@ def rope_game_mini
     # ! Lost
 
     scroll("============================================")
-    scroll("              You have lost! ")
-    scroll("the animal was #{wordarr.join('')}")
-    scroll("#{zombie.name} is going to sick the #{wordarr.join('')} on your friend.")
+    scroll("              You have lost! ".colorize(:blue))
+    scroll("the animal was #{wordarr.join('')}".colorize(:blue))
+    scroll("#{zombie.name} is going to sick the #{wordarr.join('')} on your friend.".colorize(:blue))
     
     return false
 end

@@ -3,6 +3,8 @@ require 'json'
 require 'rest-client'
 require 'pry'
 require 'base64'
+require 'colorize' 
+require 'colorized_string'
 
 
 def scroll(text, mili_s=0.03)
@@ -77,7 +79,7 @@ def candlestick_game_mini
         #! Game mecahnics initiated here
         points = 0
         tries.times do |i|
-            scroll("Question #{i + 1}.")
+            scroll("Question #{i + 1}.".colorize(:red))
             scroll("#{zombie.name} asks . . . ")
             ask_question(question, correct_answer, incorrect_answers, number_checker(used_numbers)) ? points += 1 : nil
             puts ("enter 'a' to continue")
@@ -103,18 +105,18 @@ def candlestick_game_mini
             #! Win cheecker
             if points == correct_answers_needed
                 scroll("--------------------------------------------", 0.01)
-                scroll("You have killed the zombie with a candlestick!")
+                scroll("You have killed the zombie with a candlestick!".colorize(:blue))
                 scroll("--------------------------------------------", 0.01)
                 return true
             end
-            scroll("You have #{points} out of 7 needed points ", 0.02)
+            scroll("You have #{points} out of 7 needed points ".colorize(:red), 0.02)
             puts(" ")
             puts(" ")
         end
         #! lose because out of tries.
         scroll("--------------------------------------------", 0.01)
-        scroll("              It seems like ")
-        scroll("the candlestick wasn't the best choice . . . ")
+        scroll("              It seems like ".colorize(:blue))
+        scroll("the candlestick wasn't the best choice . . . ".colorize(:blue))
         scroll("--------------------------------------------", 0.01)
         return false
     end
@@ -129,13 +131,13 @@ This Zombie dislikes people who are right.
   your candlestick will burn brighter, 
    killing him with your firey wit.
      OKOK
-     scroll(intro, 0.02)
+     scroll(intro.colorize(:blue), 0.02)
      scroll("===========================================", 0.01)
     
     #! Selects link
-    scroll("Which category would you like to attack?")
+    scroll("Which category would you like to attack?".colorize(:blue))
     puts(" ")
-    scroll("1. Computer Science|2. History|3. Video Games|4. Television|5. Science and Nature")
+    scroll("1. Computer Science|2. History|3. Video Games|4. Television|5. Science and Nature".colorize(:yellow))
     scroll("")
     general = "https://opentdb.com/api.php?amount=25&difficulty=medium&type=multiple&encode=base64"
     computer = "https://opentdb.com/api.php?amount=25&category=18&difficulty=easy&type=multiple&encode=base64"
@@ -147,22 +149,22 @@ This Zombie dislikes people who are right.
     userchoice = gets.chomp
     case userchoice.to_i
         when 1
-            scroll("You've chosen Computer Science.")
+            scroll("You've chosen Computer Science.".colorize(:green))
             url = computer
         when 2 
-            scroll("You've chosen History")
+            scroll("You've chosen History".colorize(:green))
             url = history
         when 3
-            scroll("You've chosen Video Games")
+            scroll("You've chosen Video Games".colorize(:green))
             url = art
         when 4 
-            scroll("You've chosen Television")
+            scroll("You've chosen Television".colorize(:green))
             url = television
         when 5 
-            scroll("You've chosen Science and Nature")
+            scroll("You've chosen Science and Nature".colorize(:green))
             url = science_nature
         else 
-            scroll("You've been assigned with random questions")
+            scroll("You've been assigned with random questions".colorize(:green))
             url = general
     end
     puts(" ")

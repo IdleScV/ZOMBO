@@ -1,4 +1,6 @@
 require 'faker'
+require 'colorize' 
+require 'colorized_string'
 def scroll(text, mili_s=0.03)
     text.each_char{|c| putc c ; sleep mili_s; $stdout.flush }
     puts " "
@@ -35,6 +37,6 @@ Zombie.create(name: Faker::Games::Witcher.monster, catchphrase: Faker::TvShows::
 
 scroll( "       A new game has been rendered")
 scroll("--------------------------------------------")
-scroll("There are #{Character.count} new Champions, ")
-scroll("                          and #{Zombie.count} new Zombies")
+scroll("There are #{Character.count} new Champions, ".colorize(:light_white))
+scroll("                          and #{Zombie.count} new Zombies".colorize(:light_white))
 scroll("--------------------------------------------")

@@ -1,5 +1,8 @@
 require_relative '../../config/environment'
 require 'pry'
+require 'colorize' 
+require 'colorized_string'
+require 'faker'
 
 Losing = <<-'EOF'
                                                                  .-')     ('-.   
@@ -184,16 +187,17 @@ def credits
       array = Fight.all[fights]
       if array[:win] == true
           scroll(" ")
-          scroll("Champion #{array.character[:name]} took down #{array.zombie[:name]}. . . . ", 0.03)
+          scroll("Champion #{array.character[:name]} took down #{array.zombie[:name]}. . . . ".colorize(:green), 0.03)
           scroll(" ")
           character_win(array.weapon[:weapon_name])
           scroll(" ")
       elsif array[:win] == false
           scroll(" ")
-          scroll("#{array.zombie[:name]} the zombie murdered #{array.character[:name]}. . . . ", 0.03)
+          scroll("#{array.zombie[:name]} the zombie murdered #{array.character[:name]}. . . . ".colorize(:red), 0.03)
           scroll(" ")
           zombie_win(array.weapon[:weapon_name])
-          scroll(" ")
+          scroll("#{array.character[:name]}'s last words:")
+          scroll("#{Faker::Quote.famous_last_words}".colorize(:light_white))
       end
       fights += 1
   end
