@@ -24,15 +24,15 @@ Weapon.create(weapon_name: "candlestick")
 
 
 Zombie.create(name: Faker::Games::Witcher.monster, catchphrase: Faker::TvShows::Community.quotes, health: 5, alive: 1)
-# Zombie.create(name: Faker::Games::Witcher.monster, catchphrase: Faker::TvShows::Community.quotes, health: 5, alive: 1)
+Zombie.create(name: Faker::Games::Witcher.monster, catchphrase: Faker::TvShows::Community.quotes, health: 5, alive: 1)
 Zombie.create(name: Faker::Games::Witcher.monster, catchphrase: Faker::TvShows::Community.quotes, health: 6, alive: 1)
-# Zombie.create(name: Faker::Games::Witcher.monster, catchphrase: Faker::TvShows::Community.quotes, health: 6, alive: 1)
-# Zombie.create(name: Faker::Games::Witcher.monster, catchphrase: Faker::TvShows::Community.quotes, health: 7, alive: 1)
-# Zombie.create(name: Faker::Games::Witcher.monster, catchphrase: Faker::TvShows::Community.quotes, health: 7, alive: 1)
-# Zombie.create(name: Faker::Games::Witcher.monster, catchphrase: Faker::TvShows::Community.quotes, health: 8, alive: 1)
-# Zombie.create(name: Faker::Games::Witcher.monster, catchphrase: Faker::TvShows::Community.quotes, health: 8, alive: 1)
-# Zombie.create(name: Faker::Games::Witcher.monster, catchphrase: Faker::TvShows::Community.quotes, health: 9, alive: 1)
-# Zombie.create(name: Faker::Games::Witcher.monster, catchphrase: Faker::TvShows::Community.quotes, health: 10, alive: 1)
+Zombie.create(name: Faker::Games::Witcher.monster, catchphrase: Faker::TvShows::Community.quotes, health: 6, alive: 1)
+Zombie.create(name: Faker::Games::Witcher.monster, catchphrase: Faker::TvShows::Community.quotes, health: 7, alive: 1)
+Zombie.create(name: Faker::Games::Witcher.monster, catchphrase: Faker::TvShows::Community.quotes, health: 7, alive: 1)
+Zombie.create(name: Faker::Games::Witcher.monster, catchphrase: Faker::TvShows::Community.quotes, health: 8, alive: 1)
+Zombie.create(name: Faker::Games::Witcher.monster, catchphrase: Faker::TvShows::Community.quotes, health: 8, alive: 1)
+Zombie.create(name: Faker::Games::Witcher.monster, catchphrase: Faker::TvShows::Community.quotes, health: 9, alive: 1)
+Zombie.create(name: Faker::Games::Witcher.monster, catchphrase: Faker::TvShows::Community.quotes, health: 10, alive: 1)
 
 
 scroll( "       A new game has been rendered")
