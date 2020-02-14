@@ -6,8 +6,11 @@ def scroll(text, mili_s=0.03)
     puts " "
 end
 
-def gun_game_mini
+def gun_game_mini 
     #! Get current zombie name
+    def zombie
+        Zombie.where({alive: true})[0]
+    end
 
     def countdown
         3.downto(1) do |i|
@@ -39,10 +42,9 @@ def gun_game_mini
 
     end
     
-    def zombie
-        Zombie.where({alive: true})[0]
-    end
-    win_points = 7
+    
+
+    win_points = zombie.health
     number_seconds = 30
     #! Instructions
     scroll("Type #{zombie.name}'s favorite foods correctly #{win_points} times to shoot him dead!", 0.05)

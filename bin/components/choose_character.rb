@@ -37,7 +37,8 @@ def get_input(names)
         character_name = names[index]
         character_obj = Character.all.detect{|char_obj| char_obj.name == character_name}
         scroll("Hello, my name is #{names[index]}.", 0.02)
-        scroll("Whenever I'm down, I always remember my favorite motto: #{character_obj.catchphrase}", 0.02)
+        scroll("The say...             ", 0.02)
+        scroll(character_obj.catchphrase, 0.02)
         return character_obj
     else
         puts "You've entered an incorrect value."

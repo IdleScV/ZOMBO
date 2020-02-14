@@ -4,8 +4,28 @@ def scroll(text, mili_s=0.03)
     puts " "
 end
 
+def zombie
+    Zombie.where({alive: true})[0]
+end
+
+def chance_adjuster
+    if zombie.health <= 5
+        return 10
+    elsif zombie.health == 6
+        return 9
+    elsif zombie.health == 7
+        return 9
+    elsif zombie.health == 8
+        return 8
+    elsif zombie.health == 9
+        return 8
+    else
+        return 7
+    end
+end
+
 def sword_game_mini
-    chance_max = 10
+    chance_max = chance_adjuster
     intro = <<-INFO
 You've chosen to live life on the edge and face the zombie with a sword.
 Guess the zombie's favorite number from 1 to 100 before he overpowers you and slashes your neck!
@@ -59,4 +79,4 @@ You have #{chance_max} guesses.
     scroll("============================================", 0.001)
     guessing_game(chance_max)
 end
-# sword_game_mini
+sword_game_mini
