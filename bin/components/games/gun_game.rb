@@ -14,7 +14,7 @@ def gun_game_mini
 
     def countdown
         3.downto(1) do |i|
-            puts "#{'%2d' % i}"
+            puts "#{'%2d' % i}".colorize(:yellow)
             sleep 1
         end
     end
@@ -22,21 +22,21 @@ def gun_game_mini
     def times_up(win_points, earned_points, food)
                
         scroll("- - - - - - - - - - - - - - - - - - - - - - ")
-        puts "Time's up!"
-        puts "You scored a total of #{earned_points} points!"
+        puts "Time's up!".colorize(:blue)
+        puts "You scored a total of #{earned_points} points!".colorize(:blue)
         
         if earned_points >= win_points
             scroll("- - - - - - - - - - - - - - - - - - - - - - ")
-            scroll("                  You WIN!                  ")
-            scroll("#{zombie.name} drops backwards into a pile of ..  ")
-            scroll("                                    #{food}     ")
+            scroll("                  You WIN!                  ".colorize(:blue))
+            scroll("#{zombie.name} drops backwards into a pile of ..  ".colorize(:blue))
+            scroll("                                    #{food}     ".colorize(:blue))
             scroll("- - - - - - - - - - - - - - - - - - - - - - ")
         else
              #! Lost
              scroll("- - - - - - - - - - - - - - - - - - - - - - ")
-             scroll("        Your Champion has been eaten        ")
-             scroll("#{zombie.name} says...                    ")
-             scroll(  "Who knew humans tasted better than #{food}? Yum!           ")
+             scroll("        Your Champion has been eaten        ".colorize(:blue))
+             scroll("#{zombie.name} says...                    ".colorize(:blue))
+             scroll(  "Who knew humans tasted better than #{food}? Yum!           ".colorize(:blue))
              scroll("- - - - - - - - - - - - - - - - - - - - - - ")
         end
 
@@ -44,11 +44,12 @@ def gun_game_mini
     
     
 
-    win_points = zombie.health
+    win_points = zombie.health + 1
     number_seconds = 30
     #! Instructions
-    scroll("Type #{zombie.name}'s favorite foods correctly #{win_points} times to shoot him dead!", 0.05)
-    scroll("You have #{number_seconds} seconds!", 0.05)
+    scroll("You have chosen a showdown with #{zombie.name}.".colorize(:blue), 0.05)
+    scroll("Type #{zombie.name}'s favorite foods correctly #{win_points} times to shoot him dead!".colorize(:blue), 0.05)
+    scroll("You have #{number_seconds} seconds!".colorize(:blue), 0.05)
     scroll("============================================", 0.01)
     scroll(" ")
     #! Game starts
@@ -62,17 +63,17 @@ def gun_game_mini
             #! Generate a random food item
             scroll("============================================", 0.002)
             food = Faker::Food.dish
-            scroll("#{zombie.name} loves to eat ... #{food}!", 0.01)
-            scroll("TYPE IT FAST!", 0.005)
+            scroll("#{zombie.name} loves to eat ...".colorize(:red) + " #{food}".colorize(:light_white) + "!".colorize(:red), 0.01)
+            scroll("TYPE IT FAST!".colorize(:green), 0.005)
             #! User inputs food item
             input = gets.chomp
-            scroll("LOCK AND LOADED . . .                    ", 0.005)
+            scroll("LOCK AND LOADED . . .                    ".colorize(:red), 0.005)
             #! Checks if input == food
             if input.downcase == food.downcase
                 if Time.now.to_i < end_time
                     time_left = end_time - Time.now.to_i
-                    scroll("                                     BANG! BANG! BANG!", 0.003)
-                    scroll("                                     #{time_left} seconds remaining", 0.003)
+                    scroll("                                     BANG! BANG! BANG!".colorize(:red), 0.003)
+                    scroll("                                     #{time_left} seconds remaining".colorize(:red), 0.003)
                     points += 1
                     y = Time.now.to_i
                 else
@@ -86,8 +87,8 @@ def gun_game_mini
             else
                 if Time.now.to_i < end_time
                     time_left = end_time - Time.now.to_i
-                    scroll("                                     PEW! PEW! YOU MISSED!!!", 0.003) 
-                    scroll("                                     #{time_left} seconds remaining", 0.003)
+                    scroll("                                     PEW! PEW! YOU MISSED!!!".colorize(:red), 0.003) 
+                    scroll("                                     #{time_left} seconds remaining".colorize(:red), 0.003)
                     y = Time.now.to_i
                 else
                     times_up(win_points, points, food)
