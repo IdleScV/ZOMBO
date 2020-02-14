@@ -122,6 +122,13 @@ def game_play
     
 end
 
-game_play
+# game_play
 
-credits
+scroll(" ")
+scroll(" ")
+scroll("           Thanks for playing ")
+scroll("============================================")
+scroll("                *credits*")
+scroll("             In memorium . . . ")
+scroll(" ")
+credits 
