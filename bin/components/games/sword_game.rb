@@ -43,7 +43,7 @@ You have #{chance_max} guesses.
                 scroll("--------------------------------------------", 0.01)
                 if chances < num_chances - 1
                     scroll("You have #{num_chances - chances - 1} chances left.".colorize(:magenta))
-                    scroll("Guess again!".colorize(:magenta))
+                    scroll("Guess again!".colorize(:green))
                 else
                     scroll("You're out of luck.  Neck slashing time!".colorize(:blue))
                     return false
@@ -53,7 +53,7 @@ You have #{chance_max} guesses.
                 scroll("--------------------------------------------", 0.01)
                 if chances < num_chances - 1
                     scroll("You have #{num_chances - chances - 1} chances left.".colorize(:magenta))
-                    scroll("Guess again!".colorize(:magenta))
+                    scroll("Guess again!".colorize(:green))
                 else
                     scroll("============================================")
                     scroll("           You're out of luck.                      ".colorize(:blue))

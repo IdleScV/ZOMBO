@@ -22,12 +22,12 @@ def gun_game_mini
     def times_up(win_points, earned_points, food)
                
         scroll("- - - - - - - - - - - - - - - - - - - - - - ")
-        puts "Time's up!".colorize(:blue)
-        puts "You scored a total of #{earned_points} points!".colorize(:blue)
+        puts "Time's up!"
+        puts "You scored a total of #{earned_points} points!"
         
         if earned_points >= win_points
             scroll("- - - - - - - - - - - - - - - - - - - - - - ")
-            scroll("                  You WIN!                  ".colorize(:blue))
+            scroll("                 You WIN!                   ".colorize(:blue))
             scroll("#{zombie.name} drops backwards into a pile of ..  ".colorize(:blue))
             scroll("                                    #{food}     ".colorize(:blue))
             scroll("- - - - - - - - - - - - - - - - - - - - - - ")

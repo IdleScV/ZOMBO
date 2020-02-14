@@ -124,7 +124,7 @@ def game_play
     
 end
 
-# game_play
+game_play
 
 scroll(" ")
 scroll(" ")
@@ -135,3 +135,9 @@ scroll("             In memorium . . . ".colorize(:light_white))
 
 
 credits 
+
+scroll(" ")
+scroll(" ")
+scroll(" ")
+scroll(" ")
+scroll(" ")

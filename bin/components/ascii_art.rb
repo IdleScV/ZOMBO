@@ -190,7 +190,8 @@ def credits
           scroll("Champion #{array.character[:name]} took down #{array.zombie[:name]}. . . . ".colorize(:green), 0.03)
           scroll(" ")
           character_win(array.weapon[:weapon_name])
-          scroll(" ")
+          scroll("#{array.zombie[:name]}'s last words:")
+          scroll("#{Faker::Quotes::Shakespeare.king_richard_iii_quote}".colorize(:light_white))
       elsif array[:win] == false
           scroll(" ")
           scroll("#{array.zombie[:name]} the zombie murdered #{array.character[:name]}. . . . ".colorize(:red), 0.03)
