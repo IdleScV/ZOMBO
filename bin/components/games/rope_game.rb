@@ -55,13 +55,16 @@ def rope_game_mini
             #? action if letter guessed is right
             if indexes.length > 0
                 count = 0
+                scroll(input + " is in the word!")
                 while count < indexes.length do
-                    scroll(input + " is in the word!")
+                    
                     blankarr[indexes[count]] = input
                     count+=1
-                    scroll("============================================", 0.005)
-                    p blankarr
+                    
+                    
                 end
+                scroll("============================================", 0.005)
+                p blankarr
                 return true
             #? action if letter guessed is false
             else
@@ -123,4 +126,4 @@ def rope_game_mini
     return false
 end
 
-# puts rope_game_mini
+puts rope_game_mini
