@@ -1,5 +1,7 @@
 require_relative '../../../config/environment'
 require 'pry'
+require 'colorize' 
+require 'colorized_string'
 
 def scroll(text, mili_s=0.03)
     text.each_char{|c| putc c ; sleep mili_s; $stdout.flush }
@@ -14,7 +16,7 @@ def start(stab_number, num_seconds = 5)
     while y < x + num_seconds
         input = gets.chomp
         if Time.now.to_i < x + num_seconds
-            scroll("[]+++||=======> STAB! ", 0.0001)
+            scroll("[]+++||=======> STAB! ".colorize(:red), 0.0001)
             counter += 1
         else
             scroll("============================================", 0.00005)
@@ -98,7 +100,7 @@ May your mind be quick and your finger be quicker.
     
     
     #! Game Starts
-    scroll(intro)
+    scroll(intro.colorize(:red))
     scroll(breaker, 0.005)
     sleep 1
     countdown
@@ -106,7 +108,7 @@ May your mind be quick and your finger be quicker.
     start(stab_number, num_seconds)  
 end
 
-# puts knife_game_mini
+puts knife_game_mini
 
 
 
