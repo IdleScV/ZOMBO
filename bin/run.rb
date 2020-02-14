@@ -72,17 +72,27 @@ scroll(@bar, 0.01)
 
 
 def game_play
+
+    
     @bar= "============================================"
     #! Win Condition
+    binding.pry
+
     if Character.where({alive: true}).length == 0
+        
         scroll(Losing, 0.001)
         scroll(@bar, 0.01)
-        scroll("Good job #{@player_name}.")
+        scroll("Good job #{@player_name}. You are a true champion.")
+        
+
         return
     elsif Zombie.where({alive: true}).length == 0
+       
         scroll(Winning, 0.001)
         scroll(@bar, 0.01)
-        scroll("Better luck, try again next time #{@player_name}")
+        scroll("Try again next time #{@player_name}, today was just not your day.")
+        
+
         return
     end
     #! Choose Character
@@ -110,6 +120,9 @@ def game_play
     failsafe
 
     game_play
+    
 end
 
 game_play
+
+credits

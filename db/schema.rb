@@ -15,7 +15,6 @@ ActiveRecord::Schema.define(version: 4) do
   create_table "characters", force: :cascade do |t|
     t.string  "name"
     t.string  "catchphrase"
-    t.integer "health"
     t.boolean "alive"
   end
 
@@ -27,8 +26,7 @@ ActiveRecord::Schema.define(version: 4) do
   end
 
   create_table "weapons", force: :cascade do |t|
-    t.string  "weapon_name"
-    t.integer "strength"
+    t.string "weapon_name"
   end
 
   create_table "zombies", force: :cascade do |t|

@@ -1,55 +1,7 @@
+require_relative '../../config/environment'
+require 'pry'
+
 Losing = <<-'EOF'
-
-                           _,,ad8888888888bba,_
-                        ,ad88888I888888888888888ba,
-                      ,88888888I88888888888888888888a,
-                    ,d888888888I8888888888888888888888b,
-                   d88888PP"""" ""YY88888888888888888888b,
-                 ,d88"'__,,--------,,,,.;ZZZY8888888888888,
-                ,8IIl'"                ;;l"ZZZIII8888888888,
-               ,I88l;'                  ;lZZZZZ888III8888888,
-             ,II88Zl;.                  ;llZZZZZ888888I888888,
-            ,II888Zl;.                .;;;;;lllZZZ888888I8888b
-           ,II8888Z;;                 `;;;;;''llZZ8888888I8888,
-           II88888Z;'                        .;lZZZ8888888I888b
-           II88888Z; _,aaa,      .,aaaaa,__.l;llZZZ88888888I888
-           II88888IZZZZZZZZZ,  .ZZZZZZZZZZZZZZ;llZZ88888888I888,
-           II88888IZZ<'(@@>Z|  |ZZZ<'(@@>ZZZZ;;llZZ888888888I88I
-          ,II88888;   `""" ;|  |ZZ; `"""     ;;llZ8888888888I888
-          II888888l            `;;          .;llZZ8888888888I888,
-         ,II888888Z;           ;;;        .;;llZZZ8888888888I888I
-         III888888Zl;    ..,   `;;       ,;;lllZZZ88888888888I888
-         II88888888Z;;...;(_    _)      ,;;;llZZZZ88888888888I888,
-         II88888888Zl;;;;;' `--'Z;.   .,;;;;llZZZZ88888888888I888b
-         ]I888888888Z;;;;'   ";llllll;..;;;lllZZZZ88888888888I8888,
-         II888888888Zl.;;"Y88bd888P";;,..;lllZZZZZ88888888888I8888I
-         II8888888888Zl;.; `"PPP";;;,..;lllZZZZZZZ88888888888I88888
-         II888888888888Zl;;. `;;;l;;;;lllZZZZZZZZW88888888888I88888
-         `II8888888888888Zl;.    ,;;lllZZZZZZZZWMZ88888888888I88888
-          II8888888888888888ZbaalllZZZZZZZZZWWMZZZ8888888888I888888,
-          `II88888888888888888b"WWZZZZZWWWMMZZZZZZI888888888I888888b
-           `II88888888888888888;ZZMMMMMMZZZZZZZZllI888888888I8888888
-            `II8888888888888888 `;lZZZZZZZZZZZlllll888888888I8888888,
-             II8888888888888888, `;lllZZZZllllll;;.Y88888888I8888888b,
-            ,II8888888888888888b   .;;lllllll;;;.;..88888888I88888888b,
-            II888888888888888PZI;.  .`;;;.;;;..; ...88888888I8888888888,
-            II888888888888PZ;;';;.   ;. .;.  .;. .. Y8888888I88888888888b,
-           ,II888888888PZ;;'                        `8888888I8888888888888b,
-           II888888888'                              888888I8888888888888888b
-          ,II888888888                              ,888888I88888888888888888
-         ,d88888888888                              d888888I8888888888ZZZZZZZ
-      ,ad888888888888I                              8888888I8888ZZZZZZZZZZZZZ
-    ,d888888888888888'                              888888IZZZZZZZZZZZZZZZZZZ
-  ,d888888888888P'8P'                               Y888ZZZZZZZZZZZZZZZZZZZZZ
- ,8888888888888,  "                                 ,ZZZZZZZZZZZZZZZZZZZZZZZZ
-d888888888888888,                                ,ZZZZZZZZZZZZZZZZZZZZZZZZZZZ
-888888888888888888a,      _                    ,ZZZZZZZZZZZZZZZZZZZZ888888888
-888888888888888888888ba,_d'                  ,ZZZZZZZZZZZZZZZZZ88888888888888
-8888888888888888888888888888bbbaaa,,,______,ZZZZZZZZZZZZZZZ888888888888888888
-8888888888888888888888888888888888ZZZZZZZZZZZZZZ88888888888888888888888888888
-88888888888888888888888888888888ZZZZZZZZZZZZZZ8888888888888888888888888888888
-8888888888888888888888888888888ZZZZZZZZZZZZZZ88888888888888888888888888888888
-
                                                                  .-')     ('-.   
                                                                 ( OO ). _(  OO)  
   ,--.   ,--.-'),-----. ,--. ,--.          ,--.     .-'),-----.(_)---\_(,------. 
@@ -59,6 +11,23 @@ d888888888888888,                                ,ZZZZZZZZZZZZZZZZZZZZZZZZZZZ
  |   /  /\_  \ |  | |  ||  | | `-' /      (|  '---.' \ |  | |  .-._)   \|  .--'  
  `-./  /.__)  `'  '-'  ('  '-'(_.-'        |      |   `'  '-'  \       /|  `---. 
    `--'         `-----'  `-----'           `------'     `-----' `-----' `------'
+                                        ____
+                                      o8%8888,                         
+                                    o88%8888888.                     
+                                    8'-    -:8888b                    
+                                  8'         8888                  
+                                  d8.-=. ,==-.:888b                 
+                                  >8 `~` :`~' d8888                 
+                                  88         ,88888                 
+                                  88b. `-~  ':88888                  
+                                  888b v=v~ .:88888                    
+                                  88888o--:':::8888                      
+                                  `88888| :::' 8888b                     
+                                  8888^^'       8888b                
+                                d888           ,%888b.        
+                                d88%            %%%8--'-.       
+                              /88:.__ ,       _%-' ---  -      
+                                  '''::===..-'   =  --.  `     
 EOF
 
 
@@ -97,13 +66,137 @@ Winning = <<-'OKU'
        ( )|'         (~-_|                   (;;'  ;;;~~~/' `;;|  `;;;\
         ) `\_         |-_;;--__               ~~~----__/'    /'_______/
         `----'       (   `~--_ ~~~;;------------~~~~~ ;;;'_/'
-____    ____  __    ______ .___________.  ______   .______     ____    ____ 
-\   \  /   / |  |  /      ||           | /  __  \  |   _  \    \   \  /   / 
- \   \/   /  |  | |  ,----'`---|  |----`|  |  |  | |  |_)  |    \   \/   /  
-  \      /   |  | |  |         |  |     |  |  |  | |      /      \_    _/   
-   \    /    |  | |  `----.    |  |     |  `--'  | |  |\  \----.   |  |     
-    \__/     |__|  \______|    |__|      \______/  | _| `._____|   |__| 
+ ____    ____  __    ______ .___________.  ______   .______     ____    ____ 
+ \   \  /   / |  |  /      ||           | /  __  \  |   _  \    \   \  /   / 
+  \   \/   /  |  | |  ,----'`---|  |----`|  |  |  | |  |_)  |    \   \/   /  
+   \      /   |  | |  |         |  |     |  |  |  | |      /      \_    _/   
+    \    /    |  | |  `----.    |  |     |  `--'  | |  |\  \----.   |  |     
+     \__/     |__|  \______|    |__|      \______/  | _| `._____|   |__| 
 
 OKU
    
-                                                                                  
+
+def scroll(text, mili_s=0.03)
+  text.each_char{|c| putc c ; sleep mili_s; $stdout.flush }
+  puts " "
+end
+
+def character_win(weapon_name)
+  case weapon_name
+    when "knife"
+      scroll(<<-'EOF'
+(╯°□°）╯[]++++||=======> STAB!
+      EOF
+      )
+    when "candlestick"
+      scroll(<<-'EOF'
+                )
+              (_)
+     ~burn~   |`|
+    /         | |  _()
+(╯°□°）╯    \_|_|_/      
+      EOF
+      )
+    when "rope"
+      scroll(<<-'EOF'
+                _______
+              |/      |
+              |      (_)
+              |      \|/
+              |       |
+              |      / \
+              |
+ (╯°□°）╯|____|____  RIP
+      EOF
+      )
+    when "gun"
+      scroll(<<-'EOF'
+          __,_____
+(╯°□°）╯/ __.==--"
+       /#(-'
+       `-'  BANG
+      EOF
+      )
+    when "sword"
+      scroll(<<-'EOF'
+(╯°□°）╯
+        /| ________________
+  O|===|* >________________>
+        \|   SLICE!
+      EOF
+      )
+  end
+end
+
+def zombie_win(weapon_name)
+  case weapon_name
+    when "knife"
+      scroll(<<-'EOF'
+[¬º-°]¬[]++++||=======> STAB!
+      EOF
+      )
+    when "candlestick"
+      scroll(<<-'EOF'
+                )
+              (_)
+     ~burn~   |`|
+    /         | |  _()
+[¬º-°]¬     \_|_|_/      
+      EOF
+      )
+    when "rope"
+      scroll(<<-'EOF'
+                _______
+              |/      |
+              |      (_)
+              |      \|/
+              |       |
+              |      / \
+              |
+  [¬º-°]¬|____|____  RIP
+      EOF
+      )
+    when "gun"
+      scroll(<<-'EOF'
+          __,_____
+ [¬º-°]¬/ __.==--"
+       /#(-'
+       `-'  BANG
+      EOF
+      )
+    when "sword"
+      scroll(<<-'EOF'
+  [¬º-°]¬ 
+        /| ________________
+  O|===|* >________________>
+        \|   SLICE!
+      EOF
+      )
+  end
+end
+
+
+
+
+def credits
+  fights = 0
+  while fights < Fight.all.length do 
+      array = Fight.all[fights]
+      if array[:win] == true
+          scroll(" ")
+          scroll("#{array.character[:name]} was killed by #{array.zombie[:name]}. . . . ", 0.03)
+          scroll(" ")
+          scroll(character_win(array.weapon[:weapon_name]), 0.03)
+          scroll(" ")
+      elsif array[2][:win] == false
+          scroll(" ")
+          scroll("#{array.zombie[:name]} was killed by #{array.character[:name]}. . . . ", 0.03)
+          scroll(" ")
+          zombie_win(array.weapon[:weapon_name])
+          scroll(" ")
+      end
+      fights += 1
+  end
+end
+
+binding.pry

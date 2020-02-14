@@ -10,9 +10,11 @@ end
 
 def input_result(result, character_obj, zombie_obj)
     if result == false
+        Fight.last.update(win: false)
         character_obj.update(alive: false) 
         scroll("Your friend " + character_obj["name"] + " is dead.")
     else
+        Fight.last.update(win: true)
         zombie_obj.update(alive: false) 
         scroll(zombie_obj["name"] + " the zombie is dead.")
     end
