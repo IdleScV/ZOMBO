@@ -33,41 +33,41 @@ You have #{chance_max} guesses.
     INFO
 
     def guessing_game(num_chances)
-        puts "Choose a number between 1 and 100."
+        puts "Choose a number between 1 and 100.".colorize(:magenta)
         x = rand(1..100)
         chances = 0
         while chances < num_chances
             input = gets.chomp.to_i
             if input < x
-                scroll("Too low!")
+                scroll("Too low!".colorize(:magenta))
                 scroll("--------------------------------------------", 0.01)
                 if chances < num_chances - 1
-                    scroll("You have #{num_chances - chances - 1} chances left.")
-                    scroll("Guess again!")
+                    scroll("You have #{num_chances - chances - 1} chances left.".colorize(:magenta))
+                    scroll("Guess again!".colorize(:magenta))
                 else
-                    scroll("You're out of luck.  Neck slashing time!")
+                    scroll("You're out of luck.  Neck slashing time!".colorize(:blue))
                     return false
                 end
             elsif input > x
-                scroll("Too high!")
+                scroll("Too high!".colorize(:magenta))
                 scroll("--------------------------------------------", 0.01)
                 if chances < num_chances - 1
-                    scroll("You have #{num_chances - chances - 1} chances left.")
-                    scroll("Guess again!")
+                    scroll("You have #{num_chances - chances - 1} chances left.".colorize(:magenta))
+                    scroll("Guess again!".colorize(:magenta))
                 else
                     scroll("============================================")
-                    scroll("           You're out of luck.                      ")
+                    scroll("           You're out of luck.                      ".colorize(:blue))
                     scroll("#{zombie.name}:                    ")
-                    scroll("           Neck slashing time!           ")
+                    scroll("           Neck slashing time!           ".colorize(:blue))
                     
                     return false
                 end
             elsif input == x
               
                 scroll("============================================")
-                scroll("        You win! Enjoy having a neck!                      ")
-                scroll("#{zombie.name}:                    ")
-                scroll("         Nooo! WHAT ABOUT MY NECK?!            ")
+                scroll("        You win! Enjoy having a neck!                      ".colorize(:blue))
+                scroll("#{zombie.name} says...                    ".colorize(:blue))
+                scroll("         Nooo! WHAT ABOUT MY NECK?!            ".colorize(:blue))
                 
                 return true
             end
@@ -75,7 +75,7 @@ You have #{chance_max} guesses.
         end
     end
     
-    scroll(intro)
+    scroll(intro.colorize(:blue))
     scroll("============================================", 0.001)
     guessing_game(chance_max)
 end

@@ -9,7 +9,7 @@ def scroll(text, mili_s=0.03)
 end
 
 def start(stab_number, num_seconds = 5)
-    puts "GO! Stab the zombie!"
+    puts "GO! Stab the zombie!".colorize(:green)
     x = Time.now.to_i
     y = Time.now.to_i
     counter = 0
@@ -44,15 +44,15 @@ def start(stab_number, num_seconds = 5)
     scroll( "You stabbed that sucker #{counter} times!", 0.0001)
     if counter >= stab_number
         scroll("============================================")
-        scroll("           You win this round!")
-        scroll("Appreciate having your brain while you can.")
+        scroll("           You win this round!".colorize(:blue))
+        scroll("Appreciate having your brain while you can.".colorize(:blue))
         scroll("============================================")
         failsafe("champ")
         return true
     else
         scroll("============================================")
-        scroll("           You lose this round, ")
-        scroll("            he ate your brain.")
+        scroll("           You lose this round. ".colorize(:blue))
+        scroll("            He ate your brain.".colorize(:blue))
         scroll("============================================")
         failsafe("bummer")
         return false
@@ -61,7 +61,7 @@ end
 
 def countdown
     3.downto(1) do |i|
-        puts "#{'%2d' % i}"
+        puts "#{'%2d' % i}".colorize(:yellow)
         sleep 1
     end
 end
@@ -100,7 +100,7 @@ May your mind be quick and your finger be quicker.
     
     
     #! Game Starts
-    scroll(intro.colorize(:red))
+    scroll(intro.colorize(:blue))
     scroll(breaker, 0.005)
     sleep 1
     countdown
@@ -108,7 +108,7 @@ May your mind be quick and your finger be quicker.
     start(stab_number, num_seconds)  
 end
 
-puts knife_game_mini
+# puts knife_game_mini
 
 
 
