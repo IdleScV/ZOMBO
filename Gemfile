@@ -9,4 +9,4 @@ gem "faker"
 gem 'json'
 gem 'rest-client'
 gem 'rspec'
-
+gem 'colorize'
